@@ -1,0 +1,186 @@
+<?php
+/**
+ * Codilight Lite functions and definitions.
+ *
+ * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ *
+ * @package Codilight_Lite
+ */
+
+if ( ! function_exists( 'codilight_lite_setup' ) ) :
+/**
+ * Sets up theme defaults and registers support for various WordPress features.
+ *
+ * Note that this function is hooked into the after_setup_theme hook, which
+ * runs before the init hook. The init hook is too late for some features, such
+ * as indicating support for post thumbnails.
+ */
+function codilight_lite_setup() {
+	/*
+	 * Make theme available for translation.
+	 * Translations can be filed in the /languages/ directory.
+	 * If you're building a theme based on Codilight Lite, use a find and replace
+	 * to change 'codilight-lite' to the name of your theme in all the template files.
+	 */
+	load_theme_textdomain( 'codilight-lite', get_template_directory() . '/languages' );
+
+	// Add default posts and comments RSS feed links to head.
+	add_theme_support( 'automatic-feed-links' );
+
+	/*
+	 * Let WordPress manage the document title.
+	 * By adding theme support, we declare that this theme does not use a
+	 * hard-coded <title> tag in the document head, and expect WordPress to
+	 * provide it for us.
+	 */
+	add_theme_support( 'title-tag' );
+
+	/*
+	 * Enable support for Post Thumbnails on posts and pages.
+	 *
+	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+	 */
+	add_theme_support( 'post-thumbnails' );
+	add_image_size( 'block_1_medium', 250, 170, true ); // Archive List Posts
+	add_image_size( 'block_2_medium', 325, 170, true ); // Archive Grid Posts
+	add_image_size( 'single_medium', 700, 9999, true ); // Archive Grid Posts
+
+	// This theme uses wp_nav_menu() in one location.
+	register_nav_menus( array(
+		'primary' => esc_html__( 'Primary Menu', 'codilight-lite' ),
+	) );
+
+	/*
+	 * Switch default core markup for search form, comment form, and comments
+	 * to output valid HTML5.
+	 */
+	add_theme_support( 'html5', array(
+		'search-form',
+		'comment-form',
+		'comment-list',
+		'gallery',
+		'caption',
+	) );
+
+	// Set up the WordPress core custom background feature.
+	add_theme_support( 'custom-background', apply_filters( 'codilight_lite_custom_background_args', array(
+		'default-color' => 'ffffff',
+		'default-image' => '',
+	) ) );
+}
+endif; // codilight_lite_setup
+add_action( 'after_setup_theme', 'codilight_lite_setup' );
+
+/**
+ * Set the content width in pixels, based on the theme's design and stylesheet.
+ *
+ * Priority 0 to make it available to lower priority callbacks.
+ *
+ * @global int $content_width
+ */
+function codilight_lite_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'codilight_lite_content_width', 640 );
+}
+add_action( 'after_setup_theme', 'codilight_lite_content_width', 0 );
+
+/**
+ * Register widget area.
+ *
+ * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ */
+function codilight_lite_widgets_init() {
+	register_sidebar( array(
+		'name'          => esc_html__( 'Sidebar', 'codilight-lite' ),
+		'id'            => 'sidebar-1',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+}
+add_action( 'widgets_init', 'codilight_lite_widgets_init' );
+
+/**
+ * Enqueue scripts and styles.
+ */
+function codilight_lite_scripts() {
+
+	// Styles
+	wp_enqueue_style( 'codilight-lite-google-fonts', codilight_lite_fonts_url(), array(), null );
+	wp_enqueue_style( 'codilight-lite-fontawesome', get_template_directory_uri() .'/assets/css/font-awesome.min.css', array(), '4.4.0' );
+	//wp_enqueue_style( 'codilight-lite-bootstrap', get_template_directory_uri() .'/assets/css/bootstrap.min.css', array(), '4.0.0' );
+	wp_enqueue_style( 'codilight-lite-style', get_stylesheet_uri() );
+
+	// Scripts
+	wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'codilight-lite-theme-js', get_template_directory_uri() . '/assets/js/theme.js', array(), '20120206', true );
+
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'codilight_lite_scripts' );
+
+
+if ( ! function_exists( 'codilight_lite_fonts_url' ) ) :
+/**
+ * Register default Google fonts
+ */
+function codilight_lite_fonts_url() {
+    $fonts_url = '';
+
+ 	/* Translators: If there are characters in your language that are not
+    * supported by merriweather, translate this to 'off'. Do not translate
+    * into your own language.
+    */
+    $merriweather = _x( 'on', 'Open Sans font: on or off', 'codilight-lite' );
+
+    /* Translators: If there are characters in your language that are not
+    * supported by Raleway, translate this to 'off'. Do not translate
+    * into your own language.
+    */
+    $raleway = _x( 'on', 'Raleway font: on or off', 'codilight-lite' );
+
+    if ( 'off' !== $raleway || 'off' !== $merriweather ) {
+        $font_families = array();
+
+        if ( 'off' !== $raleway ) {
+            $font_families[] = 'Raleway:300,400,500,600';
+        }
+
+        if ( 'off' !== $merriweather ) {
+            $font_families[] = 'Merriweather';
+        }
+
+        $query_args = array(
+            'family' => urlencode( implode( '|', $font_families ) ),
+            'subset' => urlencode( 'latin,latin-ext' ),
+        );
+
+        $fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+    }
+
+    return esc_url_raw( $fonts_url );
+}
+endif;
+
+/**
+ * Custom template tags for this theme.
+ */
+require get_template_directory() . '/inc/template-tags.php';
+
+/**
+ * Custom functions that act independently of the theme templates.
+ */
+require get_template_directory() . '/inc/extras.php';
+
+/**
+ * Customizer additions.
+ */
+require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Load Jetpack compatibility file.
+ */
+require get_template_directory() . '/inc/jetpack.php';

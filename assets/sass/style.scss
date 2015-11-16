@@ -1,0 +1,30 @@
+/*
+Theme Name: Codilight Lite
+Theme URI: http://www.famethemes.com/themes/codilight-lite
+Author: FameThemes
+Author URI: http://www.famethemes.com
+Description: Codilight Lite is a powerful magazine WordPress theme.
+Version: 1.0.0
+Text Domain: codilight-lite
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags:two-columns, left-sidebar, right-sidebar, blue, light, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready
+*/
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+---------------------------------------------------------------*/
+
+
+@import "variables";
+@import "reset";
+@import "elements";
+@import "layout";
+@import "patterns";
+
+@import "site";
+@import "navigation";
+@import "modules";
+@import "template_parts";
+@import "contents";
+@import "widgets";
+@import "supports";

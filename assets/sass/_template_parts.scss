@@ -1,0 +1,295 @@
+// main: style.scss
+
+/*- Entry Header
+--------------------------------------------------------------*/
+.single {
+    .entry-header {
+        .entry-title {
+            margin-bottom: 5px;
+        }
+    }
+    .entry-thumb {
+        @include rem('margin-top', 25px);
+    }
+}
+
+/*- Entry Footer
+--------------------------------------------------------------*/
+.entry-taxonomies {
+
+    @include rem('font-size', 13px);
+    line-height: 25px;
+    span {
+        float: left;
+        @include rem('padding', 0px 13px );
+        @include rem('font-size', 11px);
+        @include rem('margin-right', 4px );
+        font-weight: 600;
+        background: $primary;
+        color: #FFFFFF;
+        text-transform: uppercase;
+    }
+    .entry-tags {
+        @include rem('margin-top', 2px);
+    }
+    .post-categories, .post-tags {
+        list-style: none;
+        padding: 0px;
+        margin: 0;
+        li {
+            display: inline;
+            margin: 0px;
+            a {
+                line-height: 24px;
+                display: inline-block;
+                border: 1px solid $border;
+                margin-right: 2px;
+                @include rem('margin-right', 0px );
+                @include rem('margin-bottom', 3px );
+                @include rem('padding', 0px 8px );
+                color: $text;
+                &:hover {
+                    border-color: $primary;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+/*- Entry Post Navigation
+--------------------------------------------------------------*/
+.post-navigation {
+    @include rem('margin-top', 25px);
+    span {
+        @include rem('font-size', 13px);
+        color: $meta_color;
+        margin-bottom: 3px;
+        display: block;
+    }
+    .post-navi-next {
+        text-align: right;
+    }
+}
+
+/*- Entry Meta 1
+--------------------------------------------------------------*/
+.entry-meta {
+    @include rem('font-size', 13px);
+    span {
+        @include rem('margin-right', 12px);
+    }
+    a {
+        color: #666666;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    .author a {
+        font-weight: bold;
+    }
+    .comments-link {
+        float: right;
+        margin-right: 0px;
+        @include rem('font-size', 12px);
+        i {
+            margin-right: 2px;
+            position: relative;
+            top: -1px;
+        }
+    }
+    a:hover {
+        color: $primary;
+    }
+}
+
+/*- Paginate
+--------------------------------------------------------------*/
+.ft-paginate {
+    display: block;
+    @include rem('margin-top', 30px);
+    @include rem('line-height', 38px);
+    span.current, a {
+        line-height: 20px;
+        padding: 5px 14px 6px;
+        border: 1px solid $border;
+        color: $text;
+        @include border-radius(2px);
+        margin-right: 1px;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    a:hover {
+        border-color: $primary;
+    }
+    span.current {
+        background: $primary;
+        border-color: $primary;
+        color: #FFFFFF;
+    }
+    span.total-pages {
+        float: right;
+        @include rem('font-size', 13px);
+        color: $meta_color;
+        font-style: italic;
+    }
+}
+
+/* Comments
+--------------------------------------------------------------*/
+$gutter: 		50px;
+$gutter2: 		30px;
+//Baseline
+$base: 			20px;
+#comments {
+    @include rem('margin-top', 30px);
+    @include rem('padding-top', 25px);
+    border-top: 1px solid $border;
+	.comments-title {
+		@include rem('margin-bottom', 25px);
+		@include rem('font-size', 24px);
+	}
+	.comment-list {
+		list-style: none;
+		padding-left: 0px;
+		.pingback {
+			border-bottom: 1px solid $border;
+            @include rem('padding', 25px 0px);
+			margin: 0;
+			p { margin : 0px;}
+		}
+		.pingback:last-child {
+            @include rem('margin-bottom', 25px);
+		}
+
+	}
+	.comment {
+		list-style: none;
+		margin: $gutter2 0;
+		.avatar {
+			width: 60px;
+			float: left;
+			@include border-radius( 3px );
+		}
+		.comment-wrapper {
+			margin-left: $gutter2*3 ;
+			padding: ($gutter2 - 5) $gutter2 $gutter2/2 $gutter2;
+			background: #f8f9f9;
+			position: relative;
+			&:before {
+				border-color: rgba(0, 0, 0, 0) #f6f7f9 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+			    border-style: solid;
+			    border-width: 0 10px 10px 0;
+			    content: "";
+			    height: 0;
+			    left: -9px;
+			    position: absolute;
+			    top: 0;
+			    width: 0;
+			}
+			.comment-meta .comment-time, .comment-meta .comment-reply-link, .comment-meta .comment-edit-link {
+				color: #aaaaaa;
+				text-transform: uppercase;
+				letter-spacing: 0.3px;
+				font-size: 11px ;
+				&:hover {
+					color: $primary;
+				}
+				&:after {
+					content: "/";
+					padding: 0px 5px;
+				}
+
+			}
+			.comment-meta a:last-child {
+				&:after {
+					content: "";
+				}
+			}
+			.comment-meta cite .fn {
+				font-weight: bold;
+				font-style: normal;
+				margin-right: 5px ;
+				text-transform: uppercase;
+				letter-spacing: 1.5px;
+				font-size: 14px;
+			}
+			.comment-meta cite span {
+				padding: 3px 10px;
+				background: $border;
+				@include border-radius(4px);
+				margin-right: 10px;
+			}
+			a {
+				text-decoration: none;
+			}
+		}
+		.children {
+			padding-left: $gutter2*1;
+			.children {
+				padding-left: $gutter2*1;
+				.children {
+					padding-left: 0px;
+				}
+			}
+		}
+		@include media-breakpoint-down(md) {
+			.children {
+				padding-left: $gutter2*3;
+				.children {
+					padding-left: $gutter2*3;
+					.children {
+						padding-left: $gutter2*3;
+					}
+				}
+			}
+		}
+
+	}
+    .bypostauthor {
+        background: #333333;
+        color: #FFFFFF;
+    }
+	.form-allowed-tags {
+		display: none;
+	}
+	a {
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.right-sidebar .comment-respond textarea,
+.left-sidebar .comment-respond textarea {
+	width: 100%;
+}
+/* Comment Form
+--------------------------------------------------------------*/
+#respond {
+	.comment-form label {
+		display: block;
+		margin-bottom: 4px;
+	}
+	.form-allowed-tags {
+		font-size: 12px;
+		code {
+			background: none;
+		}
+	}
+	.comment-reply-title {
+		font-size: 18px;
+		letter-spacing: 1.5px;
+	    margin-bottom: 20px;
+	    text-transform: uppercase;
+	}
+	.comment-notes {
+		display: none;
+	}
+	label {
+        color: $meta_color;
+        cursor: pointer;
+	}
+}

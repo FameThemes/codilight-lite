@@ -1,0 +1,53 @@
+// main: style.scss
+/*--------------------------------------------------------------
+# Widgets Area & Widget Items
+--------------------------------------------------------------*/
+/* Widget Stuffs
+--------------------------------------------------------------*/
+.widget-title {
+    border-bottom: 1px solid $border;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 0 0 10px;
+    margin-bottom: 20px;
+}
+.widget {
+    margin-bottom: 40px;
+    font-size: 15px;
+    a {
+        color: $text;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+    ul {
+        margin-bottom: 0px;
+        padding: 0px;
+        list-style: none;
+        li {
+            padding-bottom: 4px;
+            margin-bottom: 4px;
+        }
+    }
+}
+
+
+/* Recent Comments
+--------------------------------------------------------------*/
+.widget.widget_recent_comments {
+    li {
+        @include rem('margin-bottom', 6px);
+        @include rem('padding-bottom', 6px);
+    }
+    .comment-author-link {
+        font-weight: bold;
+        a {
+            color: $primary;
+        }
+    }
+    a {
+        color: $primary;
+    }
+}

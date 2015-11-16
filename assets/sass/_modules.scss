@@ -1,0 +1,131 @@
+// main: style.scss
+/*--------------------------------------------------------------
+# Post Block/Modules
+--------------------------------------------------------------*/
+/*- # Module Patterns.
+--------------------------------------------------------------*/
+.entry-excerpt {
+    @include rem('margin-top', 17px);
+    @include rem('font-size', 14px);
+    color: #666666;
+}
+article.sticky {
+    .entry-title {
+        @include rem('padding-left', 15px);
+        position: relative;
+        &:before {
+            content: "\f08d";
+            font-family: FontAwesome;
+            display: block;
+            @include rem('font-size', 16px);
+            color: $text;
+            position: absolute;
+            top: 4px;
+            left: 0px;
+        }
+    }
+}
+
+/*- # Module 1 - List
+--------------------------------------------------------------*/
+.module_1 {
+    article {
+        @include rem('padding-bottom', 25px);
+        border-bottom: 1px solid $border;
+        @include rem('margin-bottom', 25px);
+        position: relative;
+        &:hover {
+            .entry-title a{
+                color: $primary;
+            }
+        }
+        &:last-of-type {
+            border-bottom: none;
+            padding-bottom: 0px;
+        }
+    }
+
+    .entry-thumb {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        //max-width: 250px;
+        @include rem('max-width', 250px);
+        @include media-breakpoint-down(md) {
+            //max-width: 120px;
+            @include rem('max-width', 120px);
+        }
+        @include media-breakpoint-down(md) {
+            //max-width: 80px;
+            @include rem('max-width', 80px);
+        }
+    }
+    .entry-detail {
+        //margin-left: 275px;
+        @include rem('margin-left', 275px);
+        @include media-breakpoint-up(md) {
+            //min-height: 180px;
+            @include rem('min-height', 170px);
+        }
+
+        @include media-breakpoint-down(md) {
+            //margin-left: 145px;
+            @include rem('margin-left', 145px);
+        }
+        @include media-breakpoint-down(md) {
+            //margin-left: 105px;
+            @include rem('margin-left', 105px);
+        }
+    }
+    .entry-title {
+        @include rem('font-size', 22px);
+        @include rem('margin-bottom', 3px);
+        @include media-breakpoint-down(md) {
+            @include rem('font-size', 19px);
+        }
+    }
+    .entry-excerpt {
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
+    }
+}
+
+/*- # Module 2 - Grid
+--------------------------------------------------------------*/
+.module_2 {
+    article {
+        @include rem('padding-bottom', 25px);
+        position: relative;
+        &:hover {
+            .entry-title a{
+                color: $primary;
+            }
+        }
+        &:last-of-type {
+            border-bottom: none;
+        }
+    }
+
+    .entry-thumb {
+        @include rem('margin-bottom', 15px);
+        @include media-breakpoint-down(md) {
+            img {
+                width: 100%;
+            }
+        }
+    }
+    .entry-detail {
+
+    }
+    .entry-title {
+        @include rem('font-size', 20px);
+        @include rem('margin-bottom', 3px);
+        @include media-breakpoint-down(md) {
+            @include rem('font-size', 19px);
+        }
+    }
+    .entry-excerpt {
+        @include rem('margin-top', 10px);
+    }
+}
