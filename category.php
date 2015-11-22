@@ -1,11 +1,6 @@
 <?php
 /**
- * The main template file.
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
+ * The template for displaying category archive pages.
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
@@ -13,24 +8,24 @@
  */
 
 get_header(); ?>
-
 	<div id="content" class="site-content container <?php echo codilight_lite_sidebar_position(); ?>">
 		<div class="content-inside">
 			<div id="primary" class="content-area">
 				<main id="main" class="site-main" role="main">
 
-				<?php if ( have_posts() ) : $count = 0;?>
+				<?php
+				if ( have_posts() ) : $count = 0; ?>
 
-					<?php if ( is_home() && ! is_front_page() ) : ?>
-						<header>
-							<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-						</header>
-					<?php endif; ?>
+					<header class="page-header">
+						<?php
+							the_archive_title( '<h1 class="page-title">', '</h1>' );
+							the_archive_description( '<div class="taxonomy-description">', '</div>' );
+						?>
+					</header><!-- .page-header -->
 
 					<?php
-					$layout_frontpage_posts = get_theme_mod( 'layout_frontpage_posts', 'grid' );
-
-					if ( $layout_frontpage_posts == 'grid' ) {
+					$layout_archive_posts = get_theme_mod( 'layout_archive_posts', 'grid' );
+					if ( $layout_archive_posts == 'grid' ) {
 						echo '<div class="block1 block1_grid">';
 						echo '<div class="row">';
 							while ( have_posts() ) : the_post();

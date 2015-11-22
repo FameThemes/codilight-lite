@@ -20,6 +20,12 @@
 			}
 			?>
 		</a>
+        <?php
+        $category = get_the_category();
+        if($category[0]){
+            echo '<a class="entry-category" href="'.get_category_link($category[0]->term_id ).'">'.$category[0]->cat_name.'</a>';
+        }
+        ?>
     </div>
     <div class="entry-detail">
         <header class="entry-header">

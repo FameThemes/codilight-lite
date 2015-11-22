@@ -23,7 +23,7 @@
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'codilight-lite' ); ?></a>
-
+	<?php do_action( '_before_topbar' ); ?>
 	<div id="topbar" class="site-topbar">
 		<div class="container">
 			<div class="topbar-left pull-left">
@@ -31,34 +31,41 @@
 					<span class="home-menu"> <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><i class="fa fa-home"></i></a></span>
 					<span class="nav-toggle"><a href="#0" id="nav-toggle">Menu<span></span></a></span>
 					<ul class="ft-menu">
-						<?php wp_nav_menu( array('theme_location' => 'primary', 'container' => '', 'items_wrap' => '%3$s' ) ); ?>
+						<?php wp_nav_menu( array('theme_location' => 'primary', 'container' => '', 'items_wrap' => '%3$s', 'fallback_cb' => 'codilight_lite_link_to_menu_editor' ) ); ?>
 					</ul>
 				</nav><!-- #site-navigation -->
 			</div>
 			<div class="topbar-right pull-right">
 				<ul class="topbar-elements">
+					<?php do_action( '_before_topbar_search' ); ?>
 					<li class="topbar-search">
 						<a href="javascript:void(0)"><i class="search-icon fa fa-search"></i><span>Search</span></a>
 						<div class="dropdown-content dropdown-search">
 							<?php get_search_form( true ); ?>
 						</div>
 					</li>
+					<?php do_action( '_after_topbar_search' ); ?>
+					<div class="clear"></div>
 				</ul>
 			</div>
 		</div>
 	</div><!--#topbar-->
+	<?php do_action( '_after_topbar' ); ?>
 
 	<div class="mobile-navigation">
+		<?php do_action( '_before_mobile_navigation' ); ?>
 		<ul>
-			<?php wp_nav_menu( array('theme_location' => 'primary', 'container' => '', 'items_wrap' => '%3$s' ) ); ?>
+			<?php wp_nav_menu( array('theme_location' => 'primary', 'container' => '', 'items_wrap' => '%3$s', 'fallback_cb' => 'codilight_lite_link_to_menu_editor' ) ); ?>
 		</ul>
+		<?php do_action( '_after_mobile_navigation' ); ?>
 	</div>
 
+	<?php do_action( '_before_site_header' ); ?>
 	<header id="masthead" class="site-header" role="banner">
 		<div class="container">
 			<div class="site-branding">
 				<?php
-				$codilight_lite_site_logo = get_theme_mod( 'codilight_lite_site_logo', esc_url( get_template_directory_uri() . '/assets/images/logo.png' ) );
+				$codilight_lite_site_logo = get_theme_mod( 'codilight_lite_site_logo', apply_filters('customizer_default_logo', esc_url( get_template_directory_uri() . '/assets/images/logo.png' ) ) );
 				if ( isset( $codilight_lite_site_logo ) && $codilight_lite_site_logo != '' ) {
 					echo '<a title="'. get_bloginfo( 'name' ) .'" class="site-logo" href="' . esc_url( home_url( '/' ) ) . '" rel="home"><img src="'. esc_url( $codilight_lite_site_logo ) .'" alt="'. get_bloginfo( 'name' ) .'"></a>';
 				} else {
@@ -74,3 +81,4 @@
 			</div><!-- .site-branding -->
 		</div>
 	</header><!-- #masthead -->
+	<?php do_action( '_after_site_header' ); ?>

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying results in search pages.
+ * Template part for displaying posts with list style.
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
@@ -10,22 +10,21 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+	<?php if ( has_post_thumbnail( ) ) { ?>
+    <div class="entry-thumb">
+        <a href="<?php echo esc_url( get_permalink() ); ?>" title="<?php the_title(); ?>">
+			<?php the_post_thumbnail( 'block_1_medium' ); ?>
+		</a>
+    </div>
+	<?php } ?>
+    <div class="entry-detail<?php if ( ! has_post_thumbnail( ) ) echo ' no-thumbnail'; ?>">
+        <header class="entry-header">
+    		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+    		<?php if ( 'post' === get_post_type() ) codilight_lite_meta_1();?>
+    	</header><!-- .entry-header -->
 
-		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php codilight_lite_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
-
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
-
-	<footer class="entry-footer">
-		<?php codilight_lite_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+    	<div class="entry-excerpt">
+    		<?php echo codilight_lite_excerpt(160); ?>
+    	</div><!-- .entry-content -->
+    </div>
 </article><!-- #post-## -->
-

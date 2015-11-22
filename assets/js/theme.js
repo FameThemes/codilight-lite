@@ -55,3 +55,10 @@
 	);
 
 } )();
+
+/**
+* Responsive Videos
+*/
+( function() {
+    jQuery('body').fitVids();
+})();

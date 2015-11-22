@@ -56,7 +56,7 @@
             position: absolute;
             bottom: 1px;
             left: -2px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
             z-index: 10;
         }
         &:after {
@@ -96,7 +96,7 @@
         position: absolute;
         bottom: 1px;
         right: -2px;
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.15);
         z-index: 10;
     }
     &:after {
@@ -114,7 +114,7 @@
         position: relative;
         padding: 0px 22px;
         font-family: "Raleway",Helvetica,Arial,sans-serif;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 600;
         letter-spacing: 0.4px;
         text-decoration: none;
@@ -122,6 +122,8 @@
         z-index: 50;
         -webkit-transition: all 0.2s ease-out 0s;
     	transition: all 0.2s ease-out 0s;
+        display: block;
+        float: left;
         i {
             position: relative;
             top: -1px;
@@ -150,7 +152,7 @@
             position: absolute;
             bottom: 1px;
             left: -2px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
             z-index: 10;
         }
         &:after {
@@ -257,11 +259,6 @@
 /* Site Footer
 --------------------------------------------------------------*/
 .footer-shadow {
-    // display: block;
-    // height: 43px;
-    // margin: 0 auto;
-    // overflow: hidden;
-    // max-width: 960px;
     margin: 0 auto;
     text-align: center;
     @include media-breakpoint-down(md) {
@@ -279,6 +276,25 @@
         color: $meta_color;
         p {
             margin-bottom: 4px;
+        }
+    }
+}
+.footer-navigation {
+    ul {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+        li {
+            display: inline-block;
+            margin: 0px 15px 15px;
+            a {
+                @include rem('font-size', 16px);
+                font-family: $font_heading;
+                font-weight: 500;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
         }
     }
 }

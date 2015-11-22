@@ -20,12 +20,13 @@
         display: none;
         top: 100%;
         left: 0px;
-        z-index: 99;
+        z-index: 80;
     }
     ul ul {
         top: 0px;
         left: 100%;
         padding-left: 1px;
+        z-index: 90;
     }
     li {
         position: relative;
@@ -52,7 +53,7 @@
         position: absolute;
         bottom: 1px;
         right: -1px;
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.15);
         z-index: 10;
     }
     &:after {
@@ -92,7 +93,7 @@
             position: absolute;
             bottom: 1px;
             left: -2px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
             z-index: 10;
         }
         &:after {
@@ -119,7 +120,7 @@
         font-family: $font_heading;
         padding-left: 22px;
         padding-right: 22px;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 600;
         letter-spacing: 0.4px;
         text-transform: uppercase;
@@ -199,7 +200,7 @@
         position: absolute;
         bottom: 1px;
         right: -2px;
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.15);
         z-index: 10;
     }
     &:after {
@@ -231,7 +232,7 @@
         position: absolute;
         bottom: 1px;
         left: -2px;
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.15);
         z-index: 10;
     }
     &:after {
@@ -323,9 +324,7 @@
 /* Mobile Navigation */
 .mobile-navigation {
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
-    transition: opacity 1s ease-out;
-    opacity: 0;
-    height: 0;
+    display: none;
     overflow: hidden;
     ul {
         margin: 0;
@@ -385,7 +384,7 @@
         right: 0;
         cursor: pointer;
         text-align: center;
-        padding: 7px 20px 5px;
+        padding: 6px 20px 6px;
         z-index: 10;
         font-size: 22px;
     }
@@ -398,7 +397,6 @@
 }
 @include media-breakpoint-down(lg) {
     .mobile-navigation.mobile-nav-open {
-        opacity: 1;
-        height: auto;
+        display: block;
     }
 }

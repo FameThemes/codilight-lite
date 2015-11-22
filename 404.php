@@ -8,47 +8,80 @@
  */
 
 get_header(); ?>
-	<div id="content" class="site-content">
+	<div id="content" class="site-content container no-sidebar">
 		<div class="content-inside">
 			<div id="primary" class="content-area">
 				<main id="main" class="site-main" role="main">
 
 					<section class="error-404 not-found">
 						<header class="page-header">
-							<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'codilight-lite' ); ?></h1>
+							<h1 class="page-title"><?php esc_html_e( 'Ooops... Error 404', 'codilight-lite' ); ?></h1>
+							<h3 class="page-subtitle"><?php esc_html_e( 'Sorry, but the page you are looking for doesn\'t exist. ', 'codilight-lite' ); ?></h4>
 						</header><!-- .page-header -->
 
 						<div class="page-content">
-							<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'codilight-lite' ); ?></p>
+							<div class="search404">
+								<p><?php esc_html_e( 'Maybe try a search?', 'codilight-lite' ); ?></p>
+								<?php get_search_form(); ?>
+							</div>
 
-							<?php get_search_form(); ?>
-
-							<?php the_widget( 'WP_Widget_Recent_Posts' ); ?>
-
-							<?php if ( codilight_lite_categorized_blog() ) : // Only show the widget if site has multiple categories. ?>
-							<div class="widget widget_categories">
-								<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'codilight-lite' ); ?></h2>
-								<ul>
+							<div class="latest-posts-404">
+								<h4><?php esc_html_e( 'Latest Posts', 'codilight-lite' ); ?></h4>
 								<?php
-									wp_list_categories( array(
-										'orderby'    => 'count',
-										'order'      => 'DESC',
-										'show_count' => 1,
-										'title_li'   => '',
-										'number'     => 10,
-									) );
+								$custom_query = new WP_Query( apply_filters( '404_latest_posts_args', array(
+									'post_type'           => 'post',
+									'posts_per_page'      => 6,
+									'post_status'         => 'publish',
+									'ignore_sticky_posts' => true
+								) ) );
+								$count        = 0;
+								if ( $custom_query->have_posts() ) :
+									echo '<div class="block1 block1_grid">';
+									echo '<div class="row">';
+										while ( $custom_query->have_posts() ) : $custom_query->the_post();
+										$count++;
+										?>
+										<article <?php post_class( 'col-md-4 col-sm-12' ); ?>>
+										    <div class="entry-thumb">
+										        <a href="<?php echo esc_url( get_permalink() ); ?>" title="<?php the_title(); ?>">
+													<?php
+													if ( has_post_thumbnail( ) ) {
+														the_post_thumbnail( 'block_2_medium' );
+													} else {
+														echo '<img alt="'. esc_html( get_the_title() ) .'" src="'. esc_url( get_template_directory_uri() . '/assets/images/blank325_170.png' ) .'">';
+													}
+													?>
+												</a>
+												<?php
+										        $category = get_the_category();
+										        if ( $category[0] ) {
+										            echo '<a class="entry-category" href="'.get_category_link($category[0]->term_id ).'">'.$category[0]->cat_name.'</a>';
+										        }
+										        ?>
+										    </div>
+										    <div class="entry-detail">
+										        <header class="entry-header">
+										    		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+										    		<?php if ( 'post' === get_post_type() ) codilight_lite_meta_1();?>
+										    	</header><!-- .entry-header -->
+
+										    	<div class="entry-excerpt">
+										    		<?php echo codilight_lite_excerpt(120); ?>
+										    	</div><!-- .entry-content -->
+										    </div>
+										</article><!-- #post-## -->
+										<?php
+										if ( $count % 3 == 0 ) {
+											echo '</div>';
+											echo '<div class="row">';
+										}
+										endwhile;
+									echo '</div>';
+									echo '</div>';
+								endif;
+								wp_reset_postdata(); // reset the query
 								?>
-								</ul>
-							</div><!-- .widget -->
-							<?php endif; ?>
-
-							<?php
-								/* translators: %1$s: smiley */
-								$archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'codilight-lite' ), convert_smilies( ':)' ) ) . '</p>';
-								the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
-							?>
-
-							<?php the_widget( 'WP_Widget_Tag_Cloud' ); ?>
+							</div>
 
 						</div><!-- .page-content -->
 					</section><!-- .error-404 -->

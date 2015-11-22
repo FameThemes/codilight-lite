@@ -8,7 +8,6 @@
  *
  * @package Codilight_Lite
  */
-
 ?>
 		</div> <!--#content-inside-->
 	</div><!-- #content -->
@@ -21,12 +20,20 @@
 	</div>
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="container">
+
+			<?php if ( has_nav_menu( 'footer' ) ): ?>
+			<div class="footer-navigation">
+				<?php wp_nav_menu( array('theme_location' => 'footer', 'container' => 'footer-menu', 'fallback_cb' => false ) ); ?>
+			</div>
+			<?php endif; ?>
+
 			<div class="site-info">
 				<p>
 					<?php printf( esc_html__( 'Copyright &copy; %1$s %2$s. All Rights Reserved.', 'codilight-lite' ), date('Y'), get_bloginfo( 'name' ) ); ?>
 				</p>
-				<?php printf( esc_html__( 'WordPress Theme by %1$s', 'codilight-lite' ), '<a href="'. esc_url( 'http://www.famethemes.com' ) .'">FameThemes</a>' ); ?>
+				<?php printf( esc_html__( 'Codilight Theme by %1$s', 'codilight-lite' ), '<a href="'. esc_url( 'http://www.famethemes.com/themes' ) .'">FameThemes</a>' ); ?>
 			</div><!-- .site-info -->
+
 		</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->

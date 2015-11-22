@@ -83,12 +83,13 @@
 		@include center-block;
 	}
 
-	.wp-caption-text {
+	.wp-caption-text, .wp-caption-dd {
 		margin: 0.8075em 0;
+		font-style: italic;
 	}
 }
 
-.wp-caption-text {
+.wp-caption-text, .wp-caption-dd {
 	text-align: center;
 }
 
@@ -105,22 +106,42 @@
 
 	.gallery-columns-2 & {
 		max-width: 50%;
+		img {
+			width: 100%;
+			padding: 0.5px;
+		}
 	}
 
 	.gallery-columns-3 & {
 		max-width: 33.33%;
+		img {
+			width: 100%;
+			padding: 0.5px;
+		}
 	}
 
 	.gallery-columns-4 & {
 		max-width: 25%;
+		img {
+			width: 100%;
+			padding: 0.5px;
+		}
 	}
 
 	.gallery-columns-5 & {
 		max-width: 20%;
+		img {
+			width: 100%;
+			padding: 0.5px;
+		}
 	}
 
 	.gallery-columns-6 & {
 		max-width: 16.66%;
+		img {
+			width: 100%;
+			padding: 0.5px;
+		}
 	}
 
 	.gallery-columns-7 & {
@@ -157,4 +178,36 @@ object {
 	max-width: 100%;
 }
 
-/* Helper */
+/* Ads area */
+.ads-area {
+	text-align: center;
+	border: 1px solid $border;
+	padding: 12px;
+	.adv-title {
+		position: relative;
+		&:before {
+			position: absolute;
+			top: 6px;
+			width: 100%;
+			height: 1px;
+			background: $border;
+			content: "";
+			display: block;
+			z-index: 10;
+		}
+		span {
+			font-size: 10px;
+			text-transform: uppercase;
+			letter-spacing: 1.5px;
+			font-weight: 600;
+			position: relative;
+			top: -8px;
+			background: #FFFFFF;
+			z-index: 50;
+			padding: 0px 10px;
+		}
+	}
+}
+.content-area .ads-area {
+	padding: 5px;
+}

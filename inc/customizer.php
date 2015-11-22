@@ -16,8 +16,8 @@ function codilight_lite_customize_register( $wp_customize ) {
 	require_once get_template_directory() . '/inc/customizer-controls.php';
 
 	// Remove default sections
-	$wp_customize->remove_section('colors');
-	$wp_customize->remove_section('background_image');
+	//$wp_customize->remove_section('colors');
+	//$wp_customize->remove_section('background_image');
 
 	// Remove default control.
 
@@ -26,13 +26,14 @@ function codilight_lite_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
 	/*------------------------------------------------------------------------*/
-    /*  Site Identity
+    /*  Site Identity apply_filters('the_title', '  My Custom Title (tm)  ');
     /*------------------------------------------------------------------------*/
 
     	$wp_customize->add_setting( 'codilight_lite_site_logo',
 			array(
 				'sanitize_callback' => 'codilight_lite_sanitize_file_url',
-				'default'           => esc_url( get_template_directory_uri() . '/assets/images/logo.png' )
+				// 'default'           => esc_url( get_template_directory_uri() . '/assets/images/logo.png' )
+				'default'           => apply_filters('customizer_default_logo', esc_url( get_template_directory_uri() . '/assets/images/logo.png' ) )
 			)
 		);
     	$wp_customize->add_control( new WP_Customize_Image_Control(
@@ -47,139 +48,58 @@ function codilight_lite_customize_register( $wp_customize ) {
 		);
 
 	/*------------------------------------------------------------------------*/
-    /*  Site Options
+    /*  Layout
     /*------------------------------------------------------------------------*/
-		$wp_customize->add_panel( 'codilight_lite_options',
-			array(
-				'priority'       => 22,
-			    'capability'     => 'edit_theme_options',
-			    'theme_supports' => '',
-			    'title'          => __( 'Site Options', 'codilight-lite' ),
-			    'description'    => '',
-			)
-		);
+	$wp_customize->add_section( 'codilight_lite_layout' ,
+		array(
+			'priority'    => 23,
+			'title'       => __( 'Site Layout', 'codilight-lite' ),
+			'description' => '',
+		)
+	);
 
-		/* Global Settings
-		----------------------------------------------------------------------*/
-		$wp_customize->add_section( 'codilight_lite_global_settings' ,
-			array(
-				'priority'    => 3,
-				'title'       => __( 'Global', 'codilight-lite' ),
-				'description' => '',
-				'panel'       => 'codilight_lite_options',
-			)
-		);
+		$wp_customize->add_setting( 'layout_sidebar', array(
+			'sanitize_callback' => 'codilight_lite_sanitize_layout_sidebar',
+			'default'           => 'right',
+		) );
+		$wp_customize->add_control( 'layout_sidebar', array(
+			'label'      => esc_html__( 'Default Sidebar Position', 'codilight-lite' ),
+			'section'    => 'codilight_lite_layout',
+			'type'       => 'radio',
+			'choices'    => array(
+				'left'   => 'Left Sidebar',
+				'right'  => 'Right Sidebar',
+			),
+		) );
 
-		/* Social Settings
-		----------------------------------------------------------------------*/
-		$wp_customize->add_section( 'codilight_lite_social' ,
-			array(
-				'priority'    => 6,
-				'title'       => __( 'Social Profiles', 'codilight-lite' ),
-				'description' => '',
-				'panel'       => 'codilight_lite_options',
-			)
-		);
+		$wp_customize->add_setting( 'layout_frontpage_posts', array(
+			'sanitize_callback' => 'codilight_lite_sanitize_layout',
+			'default'           => 'grid',
+		) );
+		$wp_customize->add_control( 'layout_frontpage_posts', array(
+			'label'      => esc_html__( 'Front Page Posts Layout', 'codilight-lite' ),
+			'section'    => 'codilight_lite_layout',
+			'type'       => 'radio',
+			'choices'    => array(
+				'list'   => 'List',
+				'grid'   => 'Grid',
+			),
+		) );
 
-			// Order & Stlying
-			$wp_customize->add_setting( 'codilight_lite_social_footer_guide',
-				array(
-					'sanitize_callback' => 'codilight_lite_sanitize_text'
-				)
-			);
-			$wp_customize->add_control( new Codilight_Lite_Misc_Control( $wp_customize, 'codilight_lite_social_footer_guide',
-				array(
-					'section'     => 'codilight_lite_social',
-					'type'        => 'custom_message',
-					'description' => __( 'These social profiles setting below will display at the footer of your site.', 'codilight-lite' )
-				)
-			));
-			// Footer Social Title
-			$wp_customize->add_setting( 'codilight_lite_social_footer_title',
-				array(
-					'sanitize_callback' => 'sanitize_text_field',
-					'default'           => __( 'Keep Updated', 'codilight-lite' ),
-				)
-			);
-			$wp_customize->add_control( 'codilight_lite_social_footer_title',
-				array(
-					'label'       => __('Social Footer Title', 'codilight-lite'),
-					'section'     => 'codilight_lite_social',
-					'description' => ''
-				)
-			);
-
-			// Twitter
-			$wp_customize->add_setting( 'codilight_lite_social_twitter',
-				array(
-					'sanitize_callback' => 'esc_url',
-					'default'           => 'https://twitter.com/famethemes',
-				)
-			);
-			$wp_customize->add_control( 'codilight_lite_social_twitter',
-				array(
-					'label'       => __('Twitter URL', 'codilight-lite'),
-					'section'     => 'codilight_lite_social',
-					'description' => ''
-				)
-			);
-			// Facebook
-			$wp_customize->add_setting( 'codilight_lite_social_facebook',
-				array(
-					'sanitize_callback' => 'esc_url',
-					'default'           => 'https://www.facebook.com/famethemes/',
-				)
-			);
-			$wp_customize->add_control( 'codilight_lite_social_facebook',
-				array(
-					'label'       => __('Faecbook URL', 'codilight-lite'),
-					'section'     => 'codilight_lite_social',
-					'description' => ''
-				)
-			);
-			// Facebook
-			$wp_customize->add_setting( 'codilight_lite_social_google',
-				array(
-					'sanitize_callback' => 'esc_url',
-					'default'           => '#',
-				)
-			);
-			$wp_customize->add_control( 'codilight_lite_social_google',
-				array(
-					'label'       => __('Google Plus URL', 'codilight-lite'),
-					'section'     => 'codilight_lite_social',
-					'description' => ''
-				)
-			);
-			// Instagram
-			$wp_customize->add_setting( 'codilight_lite_social_instagram',
-				array(
-					'sanitize_callback' => 'esc_url',
-					'default'           => '#',
-				)
-			);
-			$wp_customize->add_control( 'codilight_lite_social_instagram',
-				array(
-					'label'       => __('Instagram URL', 'codilight-lite'),
-					'section'     => 'codilight_lite_social',
-					'description' => ''
-				)
-			);
-			// RSS
-			$wp_customize->add_setting( 'codilight_lite_social_rss',
-				array(
-					'sanitize_callback' => 'esc_url',
-					'default'           => get_bloginfo('rss2_url'),
-				)
-			);
-			$wp_customize->add_control( 'codilight_lite_social_rss',
-				array(
-					'label'       => __('RSS URL', 'codilight-lite'),
-					'section'     => 'codilight_lite_social',
-					'description' => ''
-				)
-			);
-
+		$wp_customize->add_setting( 'layout_archive_posts', array(
+			'sanitize_callback' => 'codilight_lite_sanitize_layout',
+			'default'           => 'grid',
+		) );
+		$wp_customize->add_control( 'layout_archive_posts', array(
+			'label'      => esc_html__( 'Archive Page Posts Layout', 'codilight-lite' ),
+			'section'    => 'codilight_lite_layout',
+			'type'       => 'radio',
+			'choices'    => array(
+				'list'   => 'List',
+				'grid'   => 'Grid',
+			),
+			'description' => esc_html__( 'Category, Tag, Author, Archive Page ...', 'codilight-lite' ),
+		) );
 
 }
 add_action( 'customize_register', 'codilight_lite_customize_register' );
@@ -200,6 +120,22 @@ function codilight_lite_sanitize_file_url( $file_url ) {
 
 function codilight_lite_sanitize_number( $input ) {
     return force_balance_tags( $input );
+}
+
+function codilight_lite_sanitize_layout_sidebar( $layout_sidebar ) {
+    if ( $layout_sidebar == 'left' ) {
+		return 'left';
+	} else {
+		return 'right';
+	}
+}
+
+function codilight_lite_sanitize_layout( $layout ) {
+    if ( $layout == 'list' ) {
+		return 'list';
+	} else {
+		return 'grid';
+	}
 }
 
 function codilight_lite_sanitize_hex_color( $color ) {

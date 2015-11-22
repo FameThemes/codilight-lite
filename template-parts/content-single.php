@@ -34,16 +34,26 @@
 	<footer class="entry-footer">
 		<?php codilight_lite_entry_footer(); ?>
 
+		<?php
+		$prev_link = get_previous_post_link( '%link', '%title', true );
+		$next_link = get_next_post_link( '%link', '%title', true );
+		?>
+		<?php if ( $prev_link || $next_link ) : ?>
 		<div class="post-navigation row">
 			<div class="col-md-6">
-				<span>Previous article</span>
-				<h2 class="h5"><?php previous_post_link( '%link', '%title', true ); ?></h2>
+				<?php if ( $prev_link ) { ?>
+				<span><?php esc_html_e( 'Previous article', 'codilight-lite' ) ?></span>
+				<h2 class="h5"><?php echo $prev_link; ?></h2>
+				<?php } ?>
 			</div>
 			<div class="col-md-6 post-navi-next">
-				<span>Next article</span>
-				<h2 class="h5"><?php next_post_link( '%link', '%title', true ); ?></h2>
+				<?php if ( $next_link ) { ?>
+				<span><?php esc_html_e( 'Next article', 'codilight-lite' ) ?></span>
+				<h2 class="h5"><?php echo $next_link; ?></h2>
+				<?php } ?>
 			</div>
 		</div>
+		<?php endif; ?>
 
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

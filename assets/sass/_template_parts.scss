@@ -13,6 +13,57 @@
     }
 }
 
+/*- Page Header
+--------------------------------------------------------------*/
+.page-header {
+    @include rem('padding-bottom', 30px);
+    .page-title {
+        margin-bottom: 0px;
+        @include rem('font-size', 35px);
+        font-weight: 500;
+    }
+    .taxonomy-description {
+        @include rem('margin-top', 2px);
+        @include rem('margin-bottom', 0px);
+        p {
+            @include rem('margin-bottom', 0px);
+        }
+    }
+}
+
+/*- Entry Meta 1
+--------------------------------------------------------------*/
+.entry-meta {
+    color: $meta_color;
+    @include rem('font-size', 12px);
+    span {
+        @include rem('margin-right', 12px);
+    }
+    a {
+        color: $meta_color;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    .author a {
+        font-weight: bold;
+        color: $heading;
+    }
+    .comments-link {
+        float: right;
+        margin-right: 0px;
+        @include rem('font-size', 12px);
+        i {
+            margin-right: 2px;
+            position: relative;
+            top: -1px;
+        }
+    }
+    a:hover {
+        color: $primary;
+    }
+}
+
 /*- Entry Footer
 --------------------------------------------------------------*/
 .entry-taxonomies {
@@ -69,37 +120,12 @@
     }
     .post-navi-next {
         text-align: right;
-    }
-}
-
-/*- Entry Meta 1
---------------------------------------------------------------*/
-.entry-meta {
-    @include rem('font-size', 13px);
-    span {
-        @include rem('margin-right', 12px);
-    }
-    a {
-        color: #666666;
-        &:hover {
-            text-decoration: none;
+        @include media-breakpoint-down(md) {
+            text-align: left;
         }
     }
-    .author a {
-        font-weight: bold;
-    }
-    .comments-link {
-        float: right;
-        margin-right: 0px;
-        @include rem('font-size', 12px);
-        i {
-            margin-right: 2px;
-            position: relative;
-            top: -1px;
-        }
-    }
-    a:hover {
-        color: $primary;
+    .h5 {
+        font-weight: 600;
     }
 }
 
@@ -138,24 +164,16 @@
 
 /* Comments
 --------------------------------------------------------------*/
-$gutter: 		50px;
-$gutter2: 		30px;
-//Baseline
-$base: 			20px;
 #comments {
     @include rem('margin-top', 30px);
     @include rem('padding-top', 25px);
     border-top: 1px solid $border;
-	.comments-title {
-		@include rem('margin-bottom', 25px);
-		@include rem('font-size', 24px);
-	}
 	.comment-list {
 		list-style: none;
 		padding-left: 0px;
 		.pingback {
 			border-bottom: 1px solid $border;
-            @include rem('padding', 25px 0px);
+            @include rem('padding', 10px 0px);
 			margin: 0;
 			p { margin : 0px;}
 		}
@@ -166,90 +184,173 @@ $base: 			20px;
 	}
 	.comment {
 		list-style: none;
-		margin: $gutter2 0;
+        @include rem('margin-top', 25px);
+        &:last-child {
+            @include rem('margin-bottom', 25px);
+        }
 		.avatar {
-			width: 60px;
+			width: 50px;
 			float: left;
-			@include border-radius( 3px );
+            margin-top: 5px;
 		}
 		.comment-wrapper {
-			margin-left: $gutter2*3 ;
-			padding: ($gutter2 - 5) $gutter2 $gutter2/2 $gutter2;
-			background: #f8f9f9;
+            @include rem('margin-left', 75px);
 			position: relative;
-			&:before {
-				border-color: rgba(0, 0, 0, 0) #f6f7f9 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
-			    border-style: solid;
-			    border-width: 0 10px 10px 0;
-			    content: "";
-			    height: 0;
-			    left: -9px;
-			    position: absolute;
-			    top: 0;
-			    width: 0;
-			}
-			.comment-meta .comment-time, .comment-meta .comment-reply-link, .comment-meta .comment-edit-link {
-				color: #aaaaaa;
-				text-transform: uppercase;
-				letter-spacing: 0.3px;
-				font-size: 11px ;
+            .comment-content {
+                @include rem('margin-top', 5px);
+                p {
+                    margin-bottom: 10px;
+                }
+                p:last-child {
+                    margin-bottom: 0px;
+                }
+            }
+			.comment-meta cite span, .comment-meta .comment-time, .comment-meta .comment-reply-link, .comment-meta .comment-edit-link, .comment-reply-login {
+				color: $meta_color;
+				font-size: 12px ;
 				&:hover {
 					color: $primary;
 				}
 				&:after {
-					content: "/";
+					content: "·";
 					padding: 0px 5px;
 				}
 
 			}
+            .comment-reply-login {
+            }
 			.comment-meta a:last-child {
 				&:after {
 					content: "";
 				}
 			}
 			.comment-meta cite .fn {
-				font-weight: bold;
-				font-style: normal;
-				margin-right: 5px ;
-				text-transform: uppercase;
-				letter-spacing: 1.5px;
-				font-size: 14px;
-			}
-			.comment-meta cite span {
-				padding: 3px 10px;
-				background: $border;
-				@include border-radius(4px);
-				margin-right: 10px;
+                font-style: normal;
+                margin-right: 10px;
+                @include rem('font-size', 14px);
+                a {
+                    color: $text;
+                    &:hover {
+                        color: $primary;
+                    }
+                }
 			}
 			a {
 				text-decoration: none;
 			}
 		}
 		.children {
-			padding-left: $gutter2*1;
+            padding-left: 0px;
+            @include rem('margin-left', 75px);
+            position: relative;
+            @include media-breakpoint-down(md) {
+                @include rem('margin-left', 0px);
+            }
+            .comment {
+                position: relative;
+                &:before {
+                    content: "";
+                    height: 50px;
+                    width: 1px;
+                    background: $border;
+                    display: block;
+                    position: absolute;
+                    left: -75px;
+                    top: 5px;
+                }
+                &:after {
+                    content: "";
+                    height: 1px;
+                    width: 50px;
+                    background: $border;
+                    display: block;
+                    position: absolute;
+                    left: -75px;
+                    top: 30px;
+                }
+                @include media-breakpoint-down(md) {
+                    &:before, &:after {
+                        content: none;
+                    }
+                }
+            }
 			.children {
-				padding-left: $gutter2*1;
+				@include rem('margin-left', 75px);
+                @include media-breakpoint-down(md) {
+                    @include rem('margin-left', 0px);
+                }
+                .comment {
+                    position: relative;
+                    &:before {
+                        content: "";
+                        height: 50px;
+                        width: 1px;
+                        background: $border;
+                        display: block;
+                        position: absolute;
+                        left: -75px;
+                        top: 0px;
+                    }
+                    &:after {
+                        content: "";
+                        height: 1px;
+                        width: 50px;
+                        background: $border;
+                        display: block;
+                        position: absolute;
+                        left: -75px;
+                        top: 25px;
+                    }
+                    @include media-breakpoint-down(md) {
+                        &:before, &:after {
+                            content: none;
+                        }
+                    }
+                }
 				.children {
-					padding-left: 0px;
+                    @include media-breakpoint-down(md) {
+                        @include rem('margin-left', 0px);
+                    }
+					@include rem('margin-left', 0px);
+                    .comment {
+                        position: relative;
+                        &:before {
+                            content: "";
+                            height: 50px;
+                            width: 1px;
+                            background: $border;
+                            display: block;
+                            position: absolute;
+                            left: -75px;
+                            top: 0px;
+                        }
+                        &:after {
+                            content: "";
+                            height: 1px;
+                            width: 50px;
+                            background: $border;
+                            display: block;
+                            position: absolute;
+                            left: -75px;
+                            top: 25px;
+                        }
+                        @include media-breakpoint-down(md) {
+                            &:before, &:after {
+                                content: none;
+                            }
+                        }
+                    }
 				}
 			}
 		}
-		@include media-breakpoint-down(md) {
-			.children {
-				padding-left: $gutter2*3;
-				.children {
-					padding-left: $gutter2*3;
-					.children {
-						padding-left: $gutter2*3;
-					}
-				}
-			}
-		}
-
 	}
     .bypostauthor {
-        background: #333333;
-        color: #FFFFFF;
+        .comment-wrapper {
+            @include rem('padding', 15px 20px);
+            border: 1px solid $border;
+            position: relative;
+            top: 5px;
+        }
     }
 	.form-allowed-tags {
 		display: none;
@@ -269,6 +370,7 @@ $base: 			20px;
 /* Comment Form
 --------------------------------------------------------------*/
 #respond {
+    @include rem('margin-top', 25px);
 	.comment-form label {
 		display: block;
 		margin-bottom: 4px;
@@ -280,16 +382,43 @@ $base: 			20px;
 		}
 	}
 	.comment-reply-title {
-		font-size: 18px;
-		letter-spacing: 1.5px;
-	    margin-bottom: 20px;
+        @include rem('font-size', 17px);
+        @include rem('margin-bottom', 20px);
+		letter-spacing: 1px;
 	    text-transform: uppercase;
 	}
 	.comment-notes {
 		display: none;
 	}
 	label {
-        color: $meta_color;
         cursor: pointer;
 	}
+}
+
+/*- 404 Page.
+--------------------------------------------------------------*/
+.error-404 {
+    .page-header {
+        text-align: center;
+        @include rem('padding', 40px 0px);
+        .page-title {
+            @include rem('margin-bottom', 10px);
+            font-weight: 900;
+        }
+        .page-subtitle {
+            color: $meta_color;
+        }
+    }
+}
+.search404 {
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+}
+.latest-posts-404 {
+    @include rem('padding', 50px 0px 0px 0px);
+    > h4 {
+        font-weight: bold;
+    }
 }

@@ -8,12 +8,13 @@
  */
 
 get_header(); ?>
-	<div id="content" class="site-content container right-sidebar">
+	<div id="content" class="site-content container <?php echo codilight_lite_sidebar_position(); ?>">
 		<div class="content-inside">
 			<div id="primary" class="content-area">
 				<main id="main" class="site-main" role="main">
 
-				<?php if ( have_posts() ) : ?>
+				<?php
+				if ( have_posts() ) : $count = 0; ?>
 
 					<header class="page-header">
 						<?php
@@ -22,22 +23,32 @@ get_header(); ?>
 						?>
 					</header><!-- .page-header -->
 
-					<?php /* Start the Loop */ ?>
-					<?php while ( have_posts() ) : the_post(); ?>
+					<?php
+					$layout_archive_posts = get_theme_mod( 'layout_archive_posts', 'grid' );
+					if ( $layout_archive_posts == 'grid' ) {
+						echo '<div class="block1 block1_grid">';
+						echo '<div class="row">';
+							while ( have_posts() ) : the_post();
+							$count++;
+								get_template_part( 'template-parts/content-grid' );
+							if ( $count % 2 == 0 ) {
+								echo '</div>';
+								echo '<div class="row">';
+							}
+							endwhile;
+						echo '</div>';
+						echo '</div>';
+						codilight_lite_custom_paginate();
 
-						<?php
-
-							/*
-							 * Include the Post-Format-specific template for the content.
-							 * If you want to override this in a child theme, then include a file
-							 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-							 */
-							get_template_part( 'template-parts/content', get_post_format() );
-						?>
-
-					<?php endwhile; ?>
-
-					<?php the_posts_navigation(); ?>
+					} else {
+						echo '<div class="block1 block1_list">';
+							while ( have_posts() ) : the_post();
+							get_template_part( 'template-parts/content-list' );
+							endwhile;
+						codilight_lite_custom_paginate();
+						echo '</div>';
+					}
+					?>
 
 				<?php else : ?>
 

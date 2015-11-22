@@ -23,7 +23,13 @@ function codilight_lite_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'codilight_lite_body_classes' );
 
-
+if ( ! function_exists( 'codilight_lite_excerpt' ) ) :
+/**
+ * Get the except content limit by characters.
+ *
+ * @param string $characters
+ * @return string
+ */
 function codilight_lite_excerpt( $characters ){
 	// $characters = 160;
 	$excerpt = get_the_content();
@@ -36,3 +42,74 @@ function codilight_lite_excerpt( $characters ){
 	$excerpt = $excerpt.'...';
 	return '<div class="ft-excerpt">'. $excerpt .'</div>';
 }
+endif;
+
+if ( ! function_exists( 'codilight_lite_sidebar_position' ) ) :
+/**
+ * The site default sidebar position.
+ *
+ * @param string $characters
+ * @return string
+ */
+function codilight_lite_sidebar_position(){
+	$layout_sidebar = get_theme_mod( 'layout_sidebar', 'right' );
+	echo $layout_sidebar . '-sidebar';
+}
+endif;
+
+/**
+ * Add a count class to category counter number.
+ *
+ * @param string $characters
+ * @return string
+ */
+add_filter('wp_list_categories', 'codilight_lite_cat_count_inline');
+function codilight_lite_cat_count_inline($links) {
+	$links = str_replace('</a> (', '</a><span class="cat-count">', $links);
+	$links = str_replace(')', '</span>', $links);
+	return $links;
+}
+
+if ( ! function_exists( 'codilight_lite_link_to_menu_editor' ) ) :
+/**
+ * Menu fallback. Link to the menu editor if that is useful.
+ *
+ * @param  array $args
+ * @return string
+ */
+function codilight_lite_link_to_menu_editor( $args )
+{
+    if ( ! current_user_can( 'manage_options' ) )
+    {
+        return;
+    }
+
+    // see wp-includes/nav-menu-template.php for available arguments
+    extract( $args );
+
+    $link = $link_before
+        . '<li><a href="' .admin_url( 'nav-menus.php' ) . '">' . $before . 'Add a menu' . $after . '</a></li>'
+        . $link_after;
+
+    // We have a list
+    if ( FALSE !== stripos( $items_wrap, '<ul' )
+        or FALSE !== stripos( $items_wrap, '<ol' )
+    )
+    {
+        $link = "<li>$link</li>";
+    }
+
+    $output = sprintf( $items_wrap, $menu_id, $menu_class, $link );
+    if ( ! empty ( $container ) )
+    {
+        $output  = "<$container class='$container_class' id='$container_id'>$output</$container>";
+    }
+
+    if ( $echo )
+    {
+        echo $output;
+    }
+
+    return $output;
+}
+endif;

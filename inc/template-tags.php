@@ -68,7 +68,8 @@ function codilight_lite_custom_paginate() {
             'total'              => $total_pages,
 			'before_page_number' => '<span class="screen-reader-text">'.$translated.' </span>'
         ));
-		echo '<span class="total-pages">Page '. $current_page .' of '. $total_pages .'</span>';
+		//echo '<span class="total-pages">Page '. $current_page .' of '. $total_pages .'</span>';
+		printf( '<span class="total-pages">'. esc_html__( 'Page %1$s of %2$s', 'codilight-lite' ) .'</span>', $current_page, $total_pages );
 		echo '</div>';
     }
 }
@@ -189,7 +190,7 @@ function codilight_lite_comment( $comment, $args, $depth ) {
                     <p class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'codilight-lite' ); ?></p>
                 <?php endif; ?>
 
-                <div class="comment-content entry-content">
+                <div class="comment-content">
                     <?php comment_text(); ?>
                     <?php  ?>
                 </div><!-- .comment-content -->
