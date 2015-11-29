@@ -59,7 +59,7 @@ function codilight_lite_customize_register( $wp_customize ) {
 	);
 
 		$wp_customize->add_setting( 'layout_sidebar', array(
-			'sanitize_callback' => 'codilight_lite_sanitize_layout_sidebar',
+			'sanitize_callback' => 'codilight_lite_sanitize_select',
 			'default'           => 'right',
 		) );
 		$wp_customize->add_control( 'layout_sidebar', array(
@@ -73,7 +73,7 @@ function codilight_lite_customize_register( $wp_customize ) {
 		) );
 
 		$wp_customize->add_setting( 'layout_frontpage_posts', array(
-			'sanitize_callback' => 'codilight_lite_sanitize_layout',
+			'sanitize_callback' => 'codilight_lite_sanitize_select',
 			'default'           => 'grid',
 		) );
 		$wp_customize->add_control( 'layout_frontpage_posts', array(
@@ -87,7 +87,7 @@ function codilight_lite_customize_register( $wp_customize ) {
 		) );
 
 		$wp_customize->add_setting( 'layout_archive_posts', array(
-			'sanitize_callback' => 'codilight_lite_sanitize_layout',
+			'sanitize_callback' => 'codilight_lite_sanitize_select',
 			'default'           => 'grid',
 		) );
 		$wp_customize->add_control( 'layout_archive_posts', array(
@@ -122,20 +122,10 @@ function codilight_lite_sanitize_number( $input ) {
     return force_balance_tags( $input );
 }
 
-function codilight_lite_sanitize_layout_sidebar( $layout_sidebar ) {
-    if ( $layout_sidebar == 'left' ) {
-		return 'left';
-	} else {
-		return 'right';
-	}
-}
-
-function codilight_lite_sanitize_layout( $layout ) {
-    if ( $layout == 'list' ) {
-		return 'list';
-	} else {
-		return 'grid';
-	}
+function codilight_lite_sanitize_select( $input, $setting ) {
+	$input = sanitize_key( $input );
+	$choices = $setting->manager->get_control( $setting->id )->choices;
+	return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
 }
 
 function codilight_lite_sanitize_hex_color( $color ) {

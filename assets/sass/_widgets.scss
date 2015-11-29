@@ -111,7 +111,7 @@
 .widget_tag_cloud {
     a {
         @include rem('font-size', 13px !important);
-        padding: 2px 10px 3px;
+        padding: 3px 10px 3px;
         // background: #bbb;
         border: 1px solid $border;
         color: #888;
