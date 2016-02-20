@@ -49,6 +49,6 @@ class Codilight_Lite_Textarea_Custom_Control extends WP_Customize_Control
 
 class Codilight_Lite_Theme_Support extends WP_Customize_Control {
 	public function render_content() {
-		echo __( 'Upgrade to <a href="#">OnePress Pro</a> to be able to change the section order and styling!', 'codilight-lite' );
+		echo __( 'Upgrade to <a href="#">Codilight Premium</a> to be able to change the section order and styling!', 'codilight-lite' );
 	}
 }

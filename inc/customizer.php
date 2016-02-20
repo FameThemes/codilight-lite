@@ -101,12 +101,25 @@ function codilight_lite_customize_register( $wp_customize ) {
 			'description' => esc_html__( 'Category, Tag, Author, Archive Page ...', 'codilight-lite' ),
 		) );
 
+	$wp_customize->add_setting( 'codilight_lite_color_message',
+		array(
+			'sanitize_callback' => 'codilight_lite_sanitize_text'
+		)
+	);
+	$wp_customize->add_control( new Codilight_Lite_Misc_Control( $wp_customize, 'codilight_lite_color_message',
+		array(
+			'section'     => 'colors',
+			'type'        => 'custom_message',
+			'description' => wp_kses_post( 'Check out <a target="_blank" href="https://www.famethemes.com/themes/codilight/?utm_source=theme_customizer&utm_medium=text_link&utm_campaign=codilight_lite_customizer">Codilight Premium</a> version for full control over site color styling!', 'codilight-lite' )
+		)
+	));
+
 }
 add_action( 'customize_register', 'codilight_lite_customize_register' );
 
 
 /*------------------------------------------------------------------------*/
-/*  OnePress Sanitize Functions.
+/*  Sanitize Functions.
 /*------------------------------------------------------------------------*/
 
 function codilight_lite_sanitize_file_url( $file_url ) {
@@ -170,6 +183,3 @@ function codilight_lite_customize_js() {
 	wp_enqueue_script( 'codilight_lite_customizer', get_template_directory_uri() . '/assets/js/customizer.js', array( 'customize-controls' ), '20130508', true );
 }
 add_action( 'customize_controls_print_scripts', 'codilight_lite_customize_js' );
-
-
-
