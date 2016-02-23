@@ -29,7 +29,7 @@
 			<div class="topbar-left pull-left">
 				<nav id="site-navigation" class="main-navigation" role="navigation">
 					<span class="home-menu"> <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><i class="fa fa-home"></i></a></span>
-					<span class="nav-toggle"><a href="#0" id="nav-toggle">Menu<span></span></a></span>
+					<span class="nav-toggle"><a href="#0" id="nav-toggle"><?php esc_html_e( 'Menu', 'codilight-lite' ); ?><span></span></a></span>
 					<ul class="ft-menu">
 						<?php wp_nav_menu( array('theme_location' => 'primary', 'container' => '', 'items_wrap' => '%3$s', 'fallback_cb' => 'codilight_lite_link_to_menu_editor' ) ); ?>
 					</ul>
@@ -39,7 +39,7 @@
 				<ul class="topbar-elements">
 					<?php do_action( '_before_topbar_search' ); ?>
 					<li class="topbar-search">
-						<a href="javascript:void(0)"><i class="search-icon fa fa-search"></i><span>Search</span></a>
+						<a href="javascript:void(0)"><i class="search-icon fa fa-search"></i><span><?php esc_html_e( 'Search', 'codilight-lite' ); ?></span></a>
 						<div class="dropdown-content dropdown-search">
 							<?php get_search_form( true ); ?>
 						</div>
@@ -65,7 +65,7 @@
 		<div class="container">
 			<div class="site-branding">
 				<?php
-				$codilight_lite_site_logo = get_theme_mod( 'codilight_lite_site_logo', apply_filters('customizer_default_logo', esc_url( get_template_directory_uri() . '/assets/images/logo.png' ) ) );
+				$codilight_lite_site_logo = get_theme_mod( 'codilight_lite_site_logo', apply_filters('customizer_default_logo', '' ) );
 				if ( isset( $codilight_lite_site_logo ) && $codilight_lite_site_logo != '' ) {
 					echo '<a title="'. get_bloginfo( 'name' ) .'" class="site-logo" href="' . esc_url( home_url( '/' ) ) . '" rel="home"><img src="'. esc_url( $codilight_lite_site_logo ) .'" alt="'. get_bloginfo( 'name' ) .'"></a>';
 				} else {

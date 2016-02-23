@@ -14,9 +14,9 @@ class Codilight_Lite_Widget_Block_3 extends WP_Widget {
 		parent::__construct('ft_block3', esc_html__('FT Block 3', 'codilight-lite'), $widget_ops);
 		$this->alt_option_name = 'widget_block3';
 
-		add_action( 'save_post', array($this, 'flush_widget_cache') );
-		add_action( 'deleted_post', array($this, 'flush_widget_cache') );
-		add_action( 'switch_theme', array($this, 'flush_widget_cache') );
+		add_action( 'save_post', array($this, 'remove_cache') );
+		add_action( 'deleted_post', array($this, 'remove_cache') );
+		add_action( 'switch_theme', array($this, 'remove_cache') );
 	}
 
 	/**
@@ -83,10 +83,10 @@ class Codilight_Lite_Widget_Block_3 extends WP_Widget {
 			<article class="block-item">
 				<div class="block-thumb">
 					<a href="<?php the_permalink(); ?>">
-						<?php //the_post_thumbnail( 'block_small' ); ?>
+						<?php //the_post_thumbnail( 'codilight_lite_block_small' ); ?>
                         <?php
             			if ( has_post_thumbnail( ) ) {
-            				the_post_thumbnail( 'block_small' );
+            				the_post_thumbnail( 'codilight_lite_block_small' );
             			} else {
             				echo '<img alt="'. esc_html( get_the_title() ) .'" src="'. esc_url( get_template_directory_uri() . '/assets/images/blank90_60.png' ) .'">';
             			}
@@ -134,7 +134,7 @@ class Codilight_Lite_Widget_Block_3 extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 
-		$this->flush_widget_cache();
+		$this->remove_cache();
 		$alloptions = wp_cache_get( 'alloptions', 'options' );
 		if ( isset($alloptions['widget_recent_entries']) ) delete_option('widget_recent_entries');
 
@@ -150,7 +150,7 @@ class Codilight_Lite_Widget_Block_3 extends WP_Widget {
 	/**
 	 * @access public
 	 */
-	public function flush_widget_cache() {
+	public function remove_cache() {
 		wp_cache_delete('widget_block3', 'widget');
 	}
 

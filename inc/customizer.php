@@ -32,8 +32,6 @@ function codilight_lite_customize_register( $wp_customize ) {
     	$wp_customize->add_setting( 'codilight_lite_site_logo',
 			array(
 				'sanitize_callback' => 'codilight_lite_sanitize_file_url',
-				// 'default'           => esc_url( get_template_directory_uri() . '/assets/images/logo.png' )
-				'default'           => apply_filters('customizer_default_logo', esc_url( get_template_directory_uri() . '/assets/images/logo.png' ) )
 			)
 		);
     	$wp_customize->add_control( new WP_Customize_Image_Control(

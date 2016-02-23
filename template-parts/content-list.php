@@ -14,7 +14,7 @@
         <a href="<?php echo esc_url( get_permalink() ); ?>" title="<?php the_title(); ?>">
 			<?php
 			if ( has_post_thumbnail( ) ) {
-				the_post_thumbnail( 'block_1_medium' );
+				the_post_thumbnail( 'codilight_lite_block_1_medium' );
 			} else {
 				echo '<img alt="'. esc_html( get_the_title() ) .'" src="'. esc_url( get_template_directory_uri() . '/assets/images/blank250_170.png' ) .'">';
 			}

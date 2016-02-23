@@ -13,7 +13,7 @@
 	<?php if ( has_post_thumbnail( ) ) { ?>
     <div class="entry-thumb">
         <a href="<?php echo esc_url( get_permalink() ); ?>" title="<?php the_title(); ?>">
-			<?php the_post_thumbnail( 'block_1_medium' ); ?>
+			<?php the_post_thumbnail( 'codilight_lite_block_1_medium' ); ?>
 		</a>
     </div>
 	<?php } ?>
