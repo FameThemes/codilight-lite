@@ -6,7 +6,6 @@ CHANGELOG
 * Fixed header translate texts.
 * Remove widget notices with themecheck plugin.
 * Disabled logo by default.
-* Add rel="nofollow" to credit link.
 
 ## 1.0.2
 * Fixed customizer select sanitize callback.
