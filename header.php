@@ -65,7 +65,7 @@
 		<div class="container">
 			<div class="site-branding">
 				<?php
-				$codilight_lite_site_logo = get_theme_mod( 'codilight_lite_site_logo', apply_filters('customizer_default_logo', esc_url( get_template_directory_uri() . '/assets/images/logo.png' ) ) );
+				$codilight_lite_site_logo = get_theme_mod( 'codilight_lite_site_logo', apply_filters('customizer_default_logo', '' ) );
 				if ( isset( $codilight_lite_site_logo ) && $codilight_lite_site_logo != '' ) {
 					echo '<a title="'. get_bloginfo( 'name' ) .'" class="site-logo" href="' . esc_url( home_url( '/' ) ) . '" rel="home"><img src="'. esc_url( $codilight_lite_site_logo ) .'" alt="'. get_bloginfo( 'name' ) .'"></a>';
 				} else {
