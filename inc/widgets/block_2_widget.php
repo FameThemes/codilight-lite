@@ -80,7 +80,7 @@ class Codilight_Lite_Widget_Block_2_Slider extends WP_Widget {
 			<article class="slider-item">
 				<div class="slider-thumb">
 					<a href="<?php the_permalink(); ?>">
-						<?php the_post_thumbnail( 'codilight_lte_single_medium' ); ?>
+						<?php the_post_thumbnail( 'codilight_lite_single_medium' ); ?>
 					</a>
 				</div>
 				<div class="slider-content">

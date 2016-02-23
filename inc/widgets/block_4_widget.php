@@ -70,10 +70,10 @@ class Codilight_Lite_Widget_Block_4 extends WP_Widget {
 			<article class="block-item">
 				<div class="block-thumb">
 					<a href="<?php the_permalink(); ?>">
-						<?php //the_post_thumbnail( 'codilight_lte_block_small' ); ?>
+						<?php //the_post_thumbnail( 'codilight_lite_block_small' ); ?>
                         <?php
             			if ( has_post_thumbnail( ) ) {
-            				the_post_thumbnail( 'codilight_lte_block_small' );
+            				the_post_thumbnail( 'codilight_lite_block_small' );
             			} else {
             				echo '<img alt="'. esc_html( get_the_title() ) .'" src="'. esc_url( get_template_directory_uri() . '/assets/images/blank90_60.png' ) .'">';
             			}
