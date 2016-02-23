@@ -41,10 +41,10 @@ function codilight_lite_setup() {
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
 	add_theme_support( 'post-thumbnails' );
-	add_image_size( 'block_small', 90, 60, true ); // Archive List Posts
-	add_image_size( 'block_1_medium', 250, 170, true ); // Archive List Posts
-	add_image_size( 'block_2_medium', 325, 170, true ); // Archive Grid Posts
-	add_image_size( 'single_medium', 700, 350, true ); // Archive Grid Posts
+	add_image_size( 'codilight_lte_block_small', 90, 60, true ); // Archive List Posts
+	add_image_size( 'codilight_lte_block_1_medium', 250, 170, true ); // Archive List Posts
+	add_image_size( 'codilight_lte_block_2_medium', 325, 170, true ); // Archive Grid Posts
+	add_image_size( 'codilight_lte_single_medium', 700, 350, true ); // Archive Grid Posts
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(

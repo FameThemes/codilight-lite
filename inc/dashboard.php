@@ -16,7 +16,7 @@ function codilight_lite_theme_info_page() {
 	<div class="wrap about-wrap theme_info_wrapper">
 		<h1><?php printf(esc_html__('Welcome to %1s - Version %2s', 'codilight-lite'), $theme_data->Name, $theme_data->Version ); ?></h1>
 		<div class="about-text"><?php esc_html_e( 'Codilight Lite is a news magazine style WordPress theme from FameThemes which is a perfect option to create any kind of magazine or blog websites.', 'codilight-lite' ) ?></div>
-		<a target="_blank" href="<?php echo esc_url('http://www.famethemes.com/?utm_source=theme_dashboard_page&utm_medium=badge_link&utm_campaign=theme_admin'); ?>" class="famethemes-badge wp-badge"><span>FameThemes</span></a>
+		<a target="_blank" href="<?php echo esc_url('http://www.famethemes.com/?utm_source=theme_dashboard_page&utm_medium=badge_link&utm_campaign=theme_admin'); ?>" class="famethemes-badge wp-badge"><span><?php _e( 'FameThemes', 'codilight-lite' ); ?></span></a>
 		<h2 class="nav-tab-wrapper">
 			<a href="?page=ft_codilight_lite" class="nav-tab nav-tab-active"><?php echo $theme_data->Name; ?></a>
 		</h2>
@@ -48,7 +48,7 @@ function codilight_lite_theme_info_page() {
 				</div>
 
 				<div class="theme_info_right">
-					<img src="<?php echo get_template_directory_uri(); ?>/screenshot.png" alt="Theme Screenshot" />
+					<img src="<?php echo get_template_directory_uri(); ?>/screenshot.png" alt="<?php esc_attr_e( 'Theme Screenshot', 'codilight-lite' ); ?>" />
 				</div>
 			</div>
 		</div>
