@@ -32,6 +32,7 @@ article.sticky {
     .entry-title {
         @include rem('padding-left', 15px);
         position: relative;
+        hyphens: auto;
         &:before {
             content: "\f08d";
             font-family: FontAwesome;
@@ -81,6 +82,7 @@ article.sticky {
         &:hover {
             .entry-title a{
                 color: $primary;
+                hyphens: auto;
             }
         }
         &:last-of-type {
@@ -127,6 +129,7 @@ article.sticky {
     }
     .entry-title {
         font-weight: 600;
+        hyphens: auto;
         @include rem('font-size', 22px);
         @include rem('margin-bottom', 3px);
         @include media-breakpoint-down(md) {
@@ -146,6 +149,7 @@ article.sticky {
         &:hover {
             .entry-title a{
                 color: $primary;
+                hyphens: auto;
             }
         }
         &:last-of-type {
@@ -165,6 +169,7 @@ article.sticky {
 
     }
     .entry-title {
+        hyphens: auto;
         font-weight: 600;
         @include rem('font-size', 20px);
         @include rem('margin-bottom', 3px);
@@ -303,6 +308,7 @@ article.sticky {
         .block-title {
             font-weight: 600;
             margin-bottom: 0px;
+            hyphens: auto;
         }
         .block-meta {
             line-height: 1;

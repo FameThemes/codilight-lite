@@ -143,6 +143,14 @@ class Codilight_Lite_Widget_Block_2_Slider extends WP_Widget {
 		$alloptions = wp_cache_get( 'alloptions', 'options' );
 		if ( isset($alloptions['widget_recent_entries']) ) delete_option('widget_recent_entries');
 
+		$new_instance = wp_parse_args( $new_instance, array(
+			'title' 				=> '',
+			'ignore_sticky' 		=> '',
+			'featured_categories' 	=> '',
+			'number_posts' 			=> '',
+			'orderby' 				=> '',
+		) );
+
 		$instance['title']               = strip_tags( $new_instance['title'] );
 		$instance['ignore_sticky']       = isset($new_instance['ignore_sticky']) ? strip_tags($new_instance['ignore_sticky']) : '';
 		$instance['featured_categories'] = $new_instance['featured_categories'];
@@ -208,7 +216,7 @@ class Codilight_Lite_Widget_Block_2_Slider extends WP_Widget {
 			</select>
 		</p>
 		<p>
-			<?php wp_kses( _e('<strong>Upgrade To Pro:</strong> This is the Lite Version of this widget with only basic options. You can upgrade to <a target="_blank" href="http://www.famethemes.com/themes/codilight/">Codilight Pro</a> for more features and options.', 'codilight-lite' ), array( 'strong' => array(), 'a' => array( 'href' => array() ) ) ); ?><br />
+			<?php wp_kses( _e('<strong>Upgrade To Pro:</strong> This is the Lite Version of this widget with only basic options. You can upgrade to <a target="_blank" href="http://www.famethemes.com/themes/codilight/?utm_source=codilight_lite_widget&utm_medium=text_link&utm_campaign=codilight_lite">Codilight Pro</a> for more features and options.', 'codilight-lite' ), array( 'strong' => array(), 'a' => array( 'href' => array() ) ) ); ?><br />
 		</p>
 <?php
 	}

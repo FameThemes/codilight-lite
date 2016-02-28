@@ -156,7 +156,6 @@ function codilight_lite_scripts() {
 	// Styles
 	wp_enqueue_style( 'codilight-lite-google-fonts', codilight_lite_fonts_url(), array(), null );
 	wp_enqueue_style( 'codilight-lite-fontawesome', get_template_directory_uri() .'/assets/css/font-awesome.min.css', array(), '4.4.0' );
-	//wp_enqueue_style( 'codilight-lite-bootstrap', get_template_directory_uri() .'/assets/css/bootstrap.min.css', array(), '4.0.0' );
 	wp_enqueue_style( 'codilight-lite-style', get_stylesheet_uri() );
 
 	// Scripts
