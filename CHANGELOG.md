@@ -1,6 +1,11 @@
 ====================================================================
 CHANGELOG
 ====================================================================
+## 1.0.4
+* Add css hyphens for long title issue.
+* Change theme tag
+* Remove unwanted bootstrap file
+
 ## 1.0.3
 * Add prefix for custom image size names.
 * Fixed header translate texts.

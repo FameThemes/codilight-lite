@@ -5,11 +5,11 @@ Theme URI: http://www.famethemes.com/themes/codilight-lite
 Author: FameThemes
 Author URI: http://www.famethemes.com
 Description: Codilight Lite is a news magazine style WordPress theme from FameThemes which is a perfect option to create any kind of magazine or blog websites.
-Version: 1.0.3
+Version: 1.0.4
 Text Domain: codilight-lite
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags:two-columns, left-sidebar, right-sidebar, blue, light, responsive-layout, custom-background, custom-colors, custom-menu, editor-style, featured-images, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready
+Tags:two-columns, left-sidebar, right-sidebar, green, light, responsive-layout, custom-background, custom-colors, custom-menu, editor-style, featured-images, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready
 */
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
@@ -2866,6 +2866,7 @@ article.sticky .entry-title {
 	padding-left: 15px;
 	padding-left: 0.9375rem;
 	position: relative;
+	hyphens: auto;
 }
 
 article.sticky .entry-title:before {
@@ -2923,6 +2924,7 @@ article.sticky .entry-title:before {
 
 .block1_list article:hover .entry-title a {
 	color: #46a28d;
+	hyphens: auto;
 }
 
 .block1_list article:last-of-type {
@@ -2985,6 +2987,7 @@ article.sticky .entry-title:before {
 
 .block1_list .entry-title {
 	font-weight: 600;
+	hyphens: auto;
 	font-size: 22px;
 	font-size: 1.375rem;
 	margin-bottom: 3px;
@@ -3012,6 +3015,7 @@ article.sticky .entry-title:before {
 
 .block1_grid article:hover .entry-title a {
 	color: #46a28d;
+	hyphens: auto;
 }
 
 .block1_grid article:last-of-type {
@@ -3030,6 +3034,7 @@ article.sticky .entry-title:before {
 }
 
 .block1_grid .entry-title {
+	hyphens: auto;
 	font-weight: 600;
 	font-size: 20px;
 	font-size: 1.25rem;
@@ -3195,6 +3200,7 @@ article.sticky .entry-title:before {
 .block3_widget .block-content .block-title {
 	font-weight: 600;
 	margin-bottom: 0px;
+	hyphens: auto;
 }
 
 .block3_widget .block-content .block-meta {
@@ -3209,6 +3215,7 @@ article.sticky .entry-title:before {
 --------------------------------------------------------------*/
 .single .entry-header .entry-title {
 	margin-bottom: 5px;
+	hyphens: auto;
 }
 
 .single .entry-thumb {
