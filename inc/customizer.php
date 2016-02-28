@@ -108,7 +108,7 @@ function codilight_lite_customize_register( $wp_customize ) {
 		array(
 			'section'     => 'colors',
 			'type'        => 'custom_message',
-			'description' => wp_kses_post( 'Check out <a target="_blank" href="https://www.famethemes.com/themes/codilight/?utm_source=theme_customizer&utm_medium=text_link&utm_campaign=codilight_lite_customizer">Codilight Premium</a> version for full control over site color styling!', 'codilight-lite' )
+			'description' => wp_kses_post( 'Check out <a target="_blank" href="https://www.famethemes.com/themes/codilight/?utm_source=codilight_lite_customizer&utm_medium=text_link&utm_campaign=codilight_lite">Codilight Premium</a> version for full control over site color styling!', 'codilight-lite' )
 		)
 	));
 
