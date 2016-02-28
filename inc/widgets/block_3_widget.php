@@ -138,6 +138,14 @@ class Codilight_Lite_Widget_Block_3 extends WP_Widget {
 		$alloptions = wp_cache_get( 'alloptions', 'options' );
 		if ( isset($alloptions['widget_recent_entries']) ) delete_option('widget_recent_entries');
 
+		$new_instance = wp_parse_args( $new_instance, array(
+			'title' 				=> '',
+			'ignore_sticky' 		=> '',
+			'block_category' 	=> '',
+			'number_posts' 			=> '',
+			'orderby' 				=> '',
+		) );
+
 		$instance['title']               = strip_tags( $new_instance['title'] );
 		$instance['ignore_sticky']       = isset($new_instance['ignore_sticky']) ? strip_tags($new_instance['ignore_sticky']) : '';
 		$instance['block_category']      = $new_instance['block_category'];
