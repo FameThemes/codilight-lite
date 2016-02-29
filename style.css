@@ -3769,6 +3769,10 @@ article.sticky .entry-title:before {
 	margin-bottom: 0.3125rem;
 }
 
+.entry-title {
+	hyphens: auto;
+}
+
 /*--------------------------------------------------------------
 # Widgets Area & Widget Items
 --------------------------------------------------------------*/
