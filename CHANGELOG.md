@@ -1,7 +1,8 @@
 ====================================================================
 CHANGELOG
 ====================================================================
-## 1.0.5 (Didn't release yet)
+## 1.0.5
+* Fix theme reviewer issues https://themes.trac.wordpress.org/ticket/28559#comment:18
 * Add css hyphens for long page title issue.
 
 ## 1.0.4
