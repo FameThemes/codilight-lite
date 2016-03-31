@@ -28,7 +28,7 @@ function codilight_lite_theme_info_page() {
 						<h3><?php esc_html_e( 'Theme Customizer', 'codilight-lite' ); ?></h3>
 						<p class="about"><?php printf(esc_html__('%s supports the Theme Customizer for all theme settings. Click "Customize" to start customize your site.', 'codilight-lite'), $theme_data->Name); ?></p>
 						<p>
-							<a href="<?php echo admin_url('customize.php'); ?>" class="button button-primary"><?php esc_html_e('Start Customize', 'codilight-lite'); ?></a>
+							<a href="<?php echo esc_url( admin_url('customize.php') ); ?>" class="button button-primary"><?php esc_html_e('Start Customize', 'codilight-lite'); ?></a>
 						</p>
 					</div>
 					<div class="theme_link">
