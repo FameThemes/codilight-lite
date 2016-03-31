@@ -28,7 +28,7 @@ get_header(); ?>
 							<div class="latest-posts-404">
 								<h4><?php esc_html_e( 'Latest Posts', 'codilight-lite' ); ?></h4>
 								<?php
-								$custom_query = new WP_Query( apply_filters( '404_latest_posts_args', array(
+								$custom_query = new WP_Query( apply_filters( 'page_404_latest_posts_args', array(
 									'post_type'           => 'post',
 									'posts_per_page'      => 6,
 									'post_status'         => 'publish',
