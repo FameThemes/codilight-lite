@@ -35,14 +35,14 @@ function codilight_lite_theme_info_page() {
 						<h3><?php esc_html_e( 'Theme Documentation', 'codilight-lite' ); ?></h3>
 						<p class="about"><?php printf(esc_html__('Need any help to setup and configure %s? Please have a look at our documentations instructions.', 'codilight-lite'), $theme_data->Name); ?></p>
 						<p>
-							<a href="<?php echo esc_url( __( 'http://docs.famethemes.com/category/30-codilight-lite', 'codilight-lite' ) ); ?>" target="_blank" class="button button-secondary"><?php esc_html_e('Online Documentation', 'codilight-lite'); ?></a>
+							<a href="http://docs.famethemes.com/category/30-codilight-lite" target="_blank" class="button button-secondary"><?php esc_html_e('Online Documentation', 'codilight-lite'); ?></a>
 						</p>
 					</div>
 					<div class="theme_link">
 						<h3><?php esc_html_e( 'Having Trouble, Need Support?', 'codilight-lite' ); ?></h3>
 						<p class="about"><?php printf(esc_html__('Support for %s WordPress theme is conducted through the WordPress free theme support forum.', 'codilight-lite'), $theme_data->Name); ?></p>
 						<p>
-							<a href="<?php echo esc_url( __( 'https://wordpress.org/support/theme/codilight-lite', 'codilight-lite' ) ); ?>" target="_blank" class="button button-secondary"><?php echo sprintf( esc_html('Go To %s Support Forum', 'codilight-lite'), $theme_data->Name); ?></a>
+							<a href="https://wordpress.org/support/theme/codilight-lite" target="_blank" class="button button-secondary"><?php echo sprintf( esc_html('Go To %s Support Forum', 'codilight-lite'), $theme_data->Name); ?></a>
 						</p>
 					</div>
 				</div>
