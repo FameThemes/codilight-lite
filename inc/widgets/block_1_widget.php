@@ -156,7 +156,7 @@ class Codilight_Lite_Widget_Block1 extends WP_Widget {
 		$instance['ignore_sticky']       = isset($new_instance['ignore_sticky']) ? strip_tags($new_instance['ignore_sticky']) : '';
 		$instance['layout']              = $new_instance['layout'];
 		$instance['featured_categories'] = $new_instance['featured_categories'];
-		$instance['number_posts']        = $new_instance['number_posts'];
+		$instance['number_posts']        = absint( $new_instance['number_posts'] );
 		$instance['orderby'] 		     = $new_instance['orderby'];
 
 		return $instance;

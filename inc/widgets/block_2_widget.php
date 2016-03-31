@@ -154,7 +154,7 @@ class Codilight_Lite_Widget_Block_2_Slider extends WP_Widget {
 		$instance['title']               = strip_tags( $new_instance['title'] );
 		$instance['ignore_sticky']       = isset($new_instance['ignore_sticky']) ? strip_tags($new_instance['ignore_sticky']) : '';
 		$instance['featured_categories'] = $new_instance['featured_categories'];
-		$instance['number_posts']        = $new_instance['number_posts'];
+		$instance['number_posts']        = absint( $new_instance['number_posts'] );
 		$instance['orderby'] 		     = $new_instance['orderby'];
 
 		return $instance;
