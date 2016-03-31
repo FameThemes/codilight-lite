@@ -226,7 +226,7 @@ class Codilight_Lite_Widget_Block1 extends WP_Widget {
 				<?php } ?>
 			</select>
 		</p>
-		
+
 <?php
 	}
 }
