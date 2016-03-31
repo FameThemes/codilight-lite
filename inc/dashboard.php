@@ -6,7 +6,7 @@
 add_action('admin_menu', 'codilight_lite_theme_info');
 function codilight_lite_theme_info() {
 	$theme_data = wp_get_theme();
-	add_theme_page( sprintf( esc_html__( '%s Theme Dashboard', 'codilight-lite' ), $theme_data->Name ), sprintf( esc_html__('%s', 'codilight-lite'), $theme_data->Name), 'edit_themes', 'ft_codilight_lite', 'codilight_lite_theme_info_page');
+	add_theme_page( sprintf( esc_html__( '%s Theme Dashboard', 'codilight-lite' ), $theme_data->Name ), sprintf( esc_html__('%s', 'codilight-lite'), $theme_data->Name), 'edit_theme_options', 'ft_codilight_lite', 'codilight_lite_theme_info_page');
 }
 
 function codilight_lite_theme_info_page() {
