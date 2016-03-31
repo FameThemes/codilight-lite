@@ -79,7 +79,7 @@ if ( ! function_exists( 'codilight_lite_link_to_menu_editor' ) ) :
  */
 function codilight_lite_link_to_menu_editor( $args )
 {
-    if ( ! current_user_can( 'manage_options' ) )
+    if ( ! current_user_can( 'edit_theme_options' ) )
     {
         return;
     }
@@ -88,7 +88,7 @@ function codilight_lite_link_to_menu_editor( $args )
     extract( $args );
 
     $link = $link_before
-        . '<li><a href="' .admin_url( 'nav-menus.php' ) . '">' . $before . 'Add a menu' . $after . '</a></li>'
+        . '<li><a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '">' . $before . esc_html__( 'Add a menu', 'codilight-lite' ) . $after . '</a></li>'
         . $link_after;
 
     // We have a list
