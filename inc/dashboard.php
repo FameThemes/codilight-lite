@@ -6,7 +6,7 @@
 add_action('admin_menu', 'codilight_lite_theme_info');
 function codilight_lite_theme_info() {
 	$theme_data = wp_get_theme();
-	add_theme_page( sprintf( esc_html__( '%s Theme Dashboard', 'codilight-lite' ), $theme_data->Name ), sprintf( esc_html__('%s', 'codilight-lite'), $theme_data->Name), 'edit_themes', 'ft_codilight_lite', 'codilight_lite_theme_info_page');
+	add_theme_page( sprintf( esc_html__( '%s Theme Dashboard', 'codilight-lite' ), $theme_data->Name ), sprintf( esc_html__('%s', 'codilight-lite'), $theme_data->Name), 'edit_theme_options', 'ft_codilight_lite', 'codilight_lite_theme_info_page');
 }
 
 function codilight_lite_theme_info_page() {
@@ -28,21 +28,21 @@ function codilight_lite_theme_info_page() {
 						<h3><?php esc_html_e( 'Theme Customizer', 'codilight-lite' ); ?></h3>
 						<p class="about"><?php printf(esc_html__('%s supports the Theme Customizer for all theme settings. Click "Customize" to start customize your site.', 'codilight-lite'), $theme_data->Name); ?></p>
 						<p>
-							<a href="<?php echo admin_url('customize.php'); ?>" class="button button-primary"><?php esc_html_e('Start Customize', 'codilight-lite'); ?></a>
+							<a href="<?php echo esc_url( admin_url('customize.php') ); ?>" class="button button-primary"><?php esc_html_e('Start Customize', 'codilight-lite'); ?></a>
 						</p>
 					</div>
 					<div class="theme_link">
 						<h3><?php esc_html_e( 'Theme Documentation', 'codilight-lite' ); ?></h3>
 						<p class="about"><?php printf(esc_html__('Need any help to setup and configure %s? Please have a look at our documentations instructions.', 'codilight-lite'), $theme_data->Name); ?></p>
 						<p>
-							<a href="<?php echo esc_url( esc_html__( 'http://docs.famethemes.com/category/30-codilight-lite', 'codilight-lite' ) ); ?>" target="_blank" class="button button-secondary"><?php esc_html_e('Online Documentation', 'codilight-lite'); ?></a>
+							<a href="http://docs.famethemes.com/category/30-codilight-lite" target="_blank" class="button button-secondary"><?php esc_html_e('Online Documentation', 'codilight-lite'); ?></a>
 						</p>
 					</div>
 					<div class="theme_link">
 						<h3><?php esc_html_e( 'Having Trouble, Need Support?', 'codilight-lite' ); ?></h3>
 						<p class="about"><?php printf(esc_html__('Support for %s WordPress theme is conducted through the WordPress free theme support forum.', 'codilight-lite'), $theme_data->Name); ?></p>
 						<p>
-							<a href="<?php echo esc_url( esc_html__( 'https://wordpress.org/support/theme/codilight-lite', 'codilight-lite' ) ); ?>" target="_blank" class="button button-secondary"><?php echo sprintf( esc_html('Go To %s Support Forum', 'codilight-lite'), $theme_data->Name); ?></a>
+							<a href="https://wordpress.org/support/theme/codilight-lite" target="_blank" class="button button-secondary"><?php echo sprintf( esc_html('Go To %s Support Forum', 'codilight-lite'), $theme_data->Name); ?></a>
 						</p>
 					</div>
 				</div>

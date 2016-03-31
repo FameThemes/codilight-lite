@@ -1,6 +1,19 @@
 ====================================================================
 CHANGELOG
 ====================================================================
+## 1.0.5
+* Change Action hooks prefix.
+* Fix Dashboard: Correct capability.
+* Fix Menu Link: Correct capability.
+* Fix Escaping: admin_url().
+* Fix Escaping and translating URLs.
+* Fix Proper ellipsis.
+* Update Pagination.
+* Remove Textarea customizer control.
+* Remove widget Advertising.
+* Remove file rtl.css.
+* Add css hyphens for long page title issue.
+
 ## 1.0.4
 * Add css hyphens for long title issue.
 * Change theme tag.

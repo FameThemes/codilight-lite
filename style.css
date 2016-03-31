@@ -5,7 +5,7 @@ Theme URI: http://www.famethemes.com/themes/codilight-lite
 Author: FameThemes
 Author URI: http://www.famethemes.com
 Description: Codilight Lite is a news magazine style WordPress theme from FameThemes which is a perfect option to create any kind of magazine or blog websites.
-Version: 1.0.4
+Version: 1.0.5
 Text Domain: codilight-lite
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -3421,6 +3421,16 @@ article.sticky .entry-title:before {
 	font-style: italic;
 }
 
+.ft-paginate .pagination {
+	float: left;
+}
+
+.ft-paginate::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
 /* Comments
 --------------------------------------------------------------*/
 #comments {
@@ -3767,6 +3777,10 @@ article.sticky .entry-title:before {
 .entry-content ul li, .entry-content ol li {
 	margin-bottom: 5px;
 	margin-bottom: 0.3125rem;
+}
+
+.entry-title {
+	hyphens: auto;
 }
 
 /*--------------------------------------------------------------

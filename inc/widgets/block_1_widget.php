@@ -156,7 +156,7 @@ class Codilight_Lite_Widget_Block1 extends WP_Widget {
 		$instance['ignore_sticky']       = isset($new_instance['ignore_sticky']) ? strip_tags($new_instance['ignore_sticky']) : '';
 		$instance['layout']              = $new_instance['layout'];
 		$instance['featured_categories'] = $new_instance['featured_categories'];
-		$instance['number_posts']        = $new_instance['number_posts'];
+		$instance['number_posts']        = absint( $new_instance['number_posts'] );
 		$instance['orderby'] 		     = $new_instance['orderby'];
 
 		return $instance;
@@ -226,9 +226,7 @@ class Codilight_Lite_Widget_Block1 extends WP_Widget {
 				<?php } ?>
 			</select>
 		</p>
-		<p>
-			<?php wp_kses( _e('<strong>Upgrade To Pro:</strong> This is the Lite Version of this widget with only basic options. You can upgrade to <a target="_blank" href="http://www.famethemes.com/themes/codilight/?utm_source=codilight_lite_widget&utm_medium=text_link&utm_campaign=codilight_lite">Codilight Pro</a> for more features and options.', 'codilight-lite' ), array( 'strong' => array(), 'a' => array( 'href' => array() ) ) ); ?><br />
-		</p>
+
 <?php
 	}
 }

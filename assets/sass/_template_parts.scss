@@ -161,6 +161,14 @@
         color: $meta_color;
         font-style: italic;
     }
+    .pagination {
+      float: left;
+    }
+    &::after {
+      @include clearfix();
+      clear: both;
+    }
+
 }
 
 /* Comments
