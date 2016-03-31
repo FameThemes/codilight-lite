@@ -45,35 +45,6 @@ function codilight_lite_meta_1() {
 }
 endif;
 
-if ( ! function_exists( 'codilight_lite_custom_paginate' ) ) :
-/**
- * Retrieve paginated link for archive post pages.
- */
-function codilight_lite_custom_paginate() {
-    global $wp_query;
-    $total_pages = $wp_query->max_num_pages;
-	$big         = 999999999;
-	$translated  = __( 'Page', 'codilight-lite' );
-
-    if ($total_pages > 1){
-        $current_page = max(1, get_query_var('paged'));
-		echo '<div class="ft-paginate">';
-        echo paginate_links(array(
-            'base'               => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-            'format'             => '?paged=%#%',
-			'prev_next'          => True,
-			'prev_text'          => '<i class="fa fa-angle-left"></i>',
-			'next_text'          => '<i class="fa fa-angle-right"></i>',
-            'current'            => $current_page,
-            'total'              => $total_pages,
-			'before_page_number' => '<span class="screen-reader-text">'.$translated.' </span>'
-        ));
-		//echo '<span class="total-pages">Page '. $current_page .' of '. $total_pages .'</span>';
-		printf( '<span class="total-pages">'. esc_html__( 'Page %1$s of %2$s', 'codilight-lite' ) .'</span>', $current_page, $total_pages );
-		echo '</div>';
-    }
-}
-endif;
 
 if ( ! function_exists( 'codilight_lite_posted_on' ) ) :
 /**

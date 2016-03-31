@@ -3421,6 +3421,16 @@ article.sticky .entry-title:before {
 	font-style: italic;
 }
 
+.ft-paginate .pagination {
+	float: left;
+}
+
+.ft-paginate::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
 /* Comments
 --------------------------------------------------------------*/
 #comments {

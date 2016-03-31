@@ -21,11 +21,29 @@ get_header(); ?>
 					</header><!-- .page-header -->
 
 					<?php
+					global $wp_query;
+					$total_pages = $wp_query->max_num_pages;
+					$current_page = max(1, get_query_var('paged'));
+
 					echo '<div class="block1 block1_list">';
 						while ( have_posts() ) : the_post();
 						get_template_part( 'template-parts/content-search' );
 						endwhile;
-					codilight_lite_custom_paginate();
+						/**
+						 * Show pagination if more than 1 page.
+						 */
+						if (  $wp_query->max_num_pages > 1 ) {
+							echo '<div class="ft-paginate">';
+							the_posts_pagination(array(
+								'prev_next' => True,
+								'prev_text' => '<i class="fa fa-angle-left"></i>',
+								'next_text' => '<i class="fa fa-angle-right"></i>',
+								'before_page_number' => '<span class="screen-reader-text">' . __('Page', 'codilight-lite') . ' </span>',
+							));
+							printf( '<span class="total-pages">'. esc_html__( 'Page %1$s of %2$s', 'codilight-lite' ) .'</span>', $current_page, $total_pages );
+							echo '</div>';
+						}
+
 					echo '</div>';
 					?>
 
