@@ -15,7 +15,7 @@ get_header(); ?>
 
 					<section class="error-404 not-found">
 						<header class="page-header">
-							<h1 class="page-title"><?php esc_html_e( 'Ooops... Error 404', 'codilight-lite' ); ?></h1>
+							<h1 class="page-title"><?php esc_html_e( 'Ooops&hellip; Error 404', 'codilight-lite' ); ?></h1>
 							<h3 class="page-subtitle"><?php esc_html_e( 'Sorry, but the page you are looking for doesn\'t exist. ', 'codilight-lite' ); ?></h4>
 						</header><!-- .page-header -->
 

@@ -96,7 +96,7 @@ function codilight_lite_customize_register( $wp_customize ) {
 				'list'   => 'List',
 				'grid'   => 'Grid',
 			),
-			'description' => esc_html__( 'Category, Tag, Author, Archive Page ...', 'codilight-lite' ),
+			'description' => esc_html__( 'Category, Tag, Author, Archive Page&hellip;', 'codilight-lite' ),
 		) );
 
 	$wp_customize->add_setting( 'codilight_lite_color_message',
