@@ -147,7 +147,7 @@ class Codilight_Lite_Widget_Block_3 extends WP_Widget {
 		) );
 
 		$instance['title']               = sanitize_text_field( $new_instance['title'] );
-		$instance['ignore_sticky']       = isset($new_instance['ignore_sticky']) ? sanitize_text_field($new_instance['ignore_sticky']) : '';
+		$instance['ignore_sticky']       = isset($new_instance['ignore_sticky']) && $new_instance['ignore_sticky'] ? 1 : 0;
 		$instance['block_category']      = absint( $new_instance['block_category'] );
 		$instance['number_posts']        = absint( $new_instance['number_posts'] );
 		$instance['orderby'] 		     = sanitize_text_field( $new_instance['orderby'] );
