@@ -146,11 +146,11 @@ class Codilight_Lite_Widget_Block_3 extends WP_Widget {
 			'orderby' 				=> '',
 		) );
 
-		$instance['title']               = strip_tags( $new_instance['title'] );
-		$instance['ignore_sticky']       = isset($new_instance['ignore_sticky']) ? strip_tags($new_instance['ignore_sticky']) : '';
-		$instance['block_category']      = $new_instance['block_category'];
+		$instance['title']               = sanitize_text_field( $new_instance['title'] );
+		$instance['ignore_sticky']       = isset($new_instance['ignore_sticky']) && $new_instance['ignore_sticky'] ? 1 : 0;
+		$instance['block_category']      = absint( $new_instance['block_category'] );
 		$instance['number_posts']        = absint( $new_instance['number_posts'] );
-		$instance['orderby'] 		     = $new_instance['orderby'];
+		$instance['orderby'] 		     = sanitize_text_field( $new_instance['orderby'] );
 
 		return $instance;
 	}
