@@ -1,6 +1,9 @@
 ====================================================================
 CHANGELOG
 ====================================================================
+## 1.0.6
+* Add Sanitize widget data.
+
 ## 1.0.5
 * Change Action hooks prefix.
 * Fix Dashboard: Correct capability.
