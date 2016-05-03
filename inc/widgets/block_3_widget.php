@@ -10,7 +10,7 @@ add_action( 'widgets_init', create_function( '', 'return register_widget("Codili
 class Codilight_Lite_Widget_Block_3 extends WP_Widget {
 
 	public function __construct() {
-		$widget_ops = array('classname' => 'block3_widget', 'description' => esc_html__( "Display a list of posts based on one parent category", 'codilight-lite') );
+		$widget_ops = array('classname' => 'block3_widget', 'description' => esc_html__( "Display a list of posts based on one parent category.", 'codilight-lite') );
 		parent::__construct('ft_block3', esc_html__('FT Block 3', 'codilight-lite'), $widget_ops);
 		$this->alt_option_name = 'widget_block3';
 
