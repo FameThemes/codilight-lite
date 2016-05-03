@@ -65,8 +65,8 @@ function codilight_lite_customize_register( $wp_customize ) {
 			'section'    => 'codilight_lite_layout',
 			'type'       => 'radio',
 			'choices'    => array(
-				'left'   => 'Left Sidebar',
-				'right'  => 'Right Sidebar',
+				'left'   => __( 'Left Sidebar', 'codilight-lite' ),
+				'right'  => __( 'Right Sidebar', 'codilight-lite' )
 			),
 		) );
 
@@ -79,8 +79,8 @@ function codilight_lite_customize_register( $wp_customize ) {
 			'section'    => 'codilight_lite_layout',
 			'type'       => 'radio',
 			'choices'    => array(
-				'list'   => 'List',
-				'grid'   => 'Grid',
+				'list'   => __( 'List', 'codilight-lite' ),
+				'grid'   => __( 'Grid', 'codilight-lite' ),
 			),
 		) );
 
@@ -93,8 +93,8 @@ function codilight_lite_customize_register( $wp_customize ) {
 			'section'    => 'codilight_lite_layout',
 			'type'       => 'radio',
 			'choices'    => array(
-				'list'   => 'List',
-				'grid'   => 'Grid',
+				'list'   => __( 'List', 'codilight-lite' ),
+				'grid'   => __( 'Grid', 'codilight-lite' ),
 			),
 			'description' => esc_html__( 'Category, Tag, Author, Archive Page&hellip;', 'codilight-lite' ),
 		) );

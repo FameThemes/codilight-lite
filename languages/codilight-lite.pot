@@ -141,32 +141,48 @@ msgid ""
 "order and styling!"
 msgstr ""
 
-#: ../inc/customizer.php:43
+#: ../inc/customizer.php:41
 msgid "Site Logo"
 msgstr ""
 
-#: ../inc/customizer.php:45
+#: ../inc/customizer.php:43
 msgid "Your site logo"
 msgstr ""
 
-#: ../inc/customizer.php:56
+#: ../inc/customizer.php:54
 msgid "Site Layout"
 msgstr ""
 
-#: ../inc/customizer.php:66
+#: ../inc/customizer.php:64
 msgid "Default Sidebar Position"
 msgstr ""
 
-#: ../inc/customizer.php:80
+#: ../inc/customizer.php:68
+msgid "Left Sidebar"
+msgstr ""
+
+#: ../inc/customizer.php:69
+msgid "Right Sidebar"
+msgstr ""
+
+#: ../inc/customizer.php:78
 msgid "Front Page Posts Layout"
 msgstr ""
 
-#: ../inc/customizer.php:94
+#: ../inc/customizer.php:82 ../inc/customizer.php:96
+msgid "List"
+msgstr ""
+
+#: ../inc/customizer.php:83 ../inc/customizer.php:97
+msgid "Grid"
+msgstr ""
+
+#: ../inc/customizer.php:92
 msgid "Archive Page Posts Layout"
 msgstr ""
 
-#: ../inc/customizer.php:101
-msgid "Category, Tag, Author, Archive Page ..."
+#: ../inc/customizer.php:99
+msgid "Category, Tag, Author, Archive Page&hellip;"
 msgstr ""
 
 #: ../inc/dashboard.php:9
