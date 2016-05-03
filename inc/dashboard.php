@@ -42,7 +42,7 @@ function codilight_lite_theme_info_page() {
 						<h3><?php esc_html_e( 'Having Trouble, Need Support?', 'codilight-lite' ); ?></h3>
 						<p class="about"><?php printf(esc_html__('Support for %s WordPress theme is conducted through the WordPress free theme support forum.', 'codilight-lite'), $theme_data->Name); ?></p>
 						<p>
-							<a href="https://wordpress.org/support/theme/codilight-lite" target="_blank" class="button button-secondary"><?php echo sprintf( esc_html('Go To %s Support Forum', 'codilight-lite'), $theme_data->Name); ?></a>
+							<a href="https://wordpress.org/support/theme/codilight-lite" target="_blank" class="button button-secondary"><?php echo sprintf( esc_html__('Go To %s Support Forum', 'codilight-lite'), $theme_data->Name); ?></a>
 						</p>
 					</div>
 				</div>
