@@ -35,7 +35,7 @@ function codilight_lite_theme_info_page() {
 						<h3><?php esc_html_e( 'Theme Documentation', 'codilight-lite' ); ?></h3>
 						<p class="about"><?php printf(esc_html__('Need any help to setup and configure %s? Please have a look at our documentations instructions.', 'codilight-lite'), $theme_data->Name); ?></p>
 						<p>
-							<a href="http://docs.famethemes.com/category/30-codilight-lite" target="_blank" class="button button-secondary"><?php esc_html_e('Online Documentation', 'codilight-lite'); ?></a>
+							<a href="http://docs.famethemes.com/category/111-codilight-lite" target="_blank" class="button button-secondary"><?php esc_html_e('Online Documentation', 'codilight-lite'); ?></a>
 						</p>
 					</div>
 					<div class="theme_link">
