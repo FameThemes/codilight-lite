@@ -65,8 +65,8 @@ function codilight_lite_customize_register( $wp_customize ) {
 			'section'    => 'codilight_lite_layout',
 			'type'       => 'radio',
 			'choices'    => array(
-				'left'   => 'Left Sidebar',
-				'right'  => 'Right Sidebar',
+				'left'   => __( 'Left Sidebar', 'codilight-lite' ),
+				'right'  => __( 'Right Sidebar', 'codilight-lite' )
 			),
 		) );
 
@@ -79,8 +79,8 @@ function codilight_lite_customize_register( $wp_customize ) {
 			'section'    => 'codilight_lite_layout',
 			'type'       => 'radio',
 			'choices'    => array(
-				'list'   => 'List',
-				'grid'   => 'Grid',
+				'list'   => __( 'List', 'codilight-lite' ),
+				'grid'   => __( 'Grid', 'codilight-lite' ),
 			),
 		) );
 
@@ -93,8 +93,8 @@ function codilight_lite_customize_register( $wp_customize ) {
 			'section'    => 'codilight_lite_layout',
 			'type'       => 'radio',
 			'choices'    => array(
-				'list'   => 'List',
-				'grid'   => 'Grid',
+				'list'   => __( 'List', 'codilight-lite' ),
+				'grid'   => __( 'Grid', 'codilight-lite' ),
 			),
 			'description' => esc_html__( 'Category, Tag, Author, Archive Page&hellip;', 'codilight-lite' ),
 		) );
@@ -108,7 +108,7 @@ function codilight_lite_customize_register( $wp_customize ) {
 		array(
 			'section'     => 'colors',
 			'type'        => 'custom_message',
-			'description' => wp_kses_post( 'Check out <a target="_blank" href="https://www.famethemes.com/themes/codilight-lite?utm_source=codilight_lite_customizer&utm_medium=text_link&utm_campaign=codilight_lite#compare">Codilight Premium</a> version for full control over site color styling!', 'codilight-lite' )
+			'description' => wp_kses_post( __( 'Check out <a target="_blank" href="https://www.famethemes.com/themes/codilight-lite?utm_source=codilight_lite_customizer&utm_medium=text_link&utm_campaign=codilight_lite#compare">Codilight Premium</a> version for full control over site color styling!', 'codilight-lite' ) )
 		)
 	));
 
