@@ -16,7 +16,7 @@ get_header(); ?>
 	<div id="content" class="site-content container <?php echo codilight_lite_sidebar_position(); ?>">
 		<div class="content-inside">
 			<div id="primary" class="content-area">
-				<main id="main" class="site-main" role="main">
+				<main id="main" class="site-main" >
 
 					<?php while ( have_posts() ) : the_post(); ?>
 

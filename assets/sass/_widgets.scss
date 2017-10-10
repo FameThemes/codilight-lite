@@ -110,7 +110,7 @@
 --------------------------------------------------------------*/
 .widget_tag_cloud {
     a {
-        @include rem('font-size', 13px !important);
+        font-size: 13px !important;
         padding: 3px 10px 3px;
         // background: #bbb;
         border: 1px solid $border;

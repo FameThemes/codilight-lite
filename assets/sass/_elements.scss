@@ -204,7 +204,6 @@ pre {
     line-height: 1.7;
     @include rem('margin', 0px 0px 16px);
     @include rem('padding', 16px);
-    @extend .break;
 }
 details {
     summary {

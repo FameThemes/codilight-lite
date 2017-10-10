@@ -18,7 +18,7 @@
 			</div>
 		</div>
 	</div>
-	<footer id="colophon" class="site-footer" role="contentinfo">
+	<footer id="colophon" class="site-footer" >
 		<div class="container">
 
 			<?php if ( has_nav_menu( 'footer' ) ): ?>

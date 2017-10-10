@@ -47,7 +47,7 @@ class Codilight_Lite_Widget_Block_4 extends WP_Widget {
 		$featured_categories = ( ! empty( $instance['featured_categories'] ) ) ? $instance['featured_categories'] : '';
 		$ignore_sticky 		 = isset($instance['ignore_sticky']) ? $instance['ignore_sticky'] : 1;
 		$orderby			 = ( ! empty( $instance['orderby'] ) ) ? $instance['orderby'] : 'date';
-		$number_posts        = ( ! empty( $instance['$number_posts'] ) ) ? absint( $instance['$number_posts'] ) : 4;
+		$number_posts        = ( ! empty( $instance['number_posts'] ) ) ? absint( $instance['number_posts'] ) : 4;
 		if ( ! $number_posts ) $number_posts = 4;
 
 		$r = new WP_Query( apply_filters( 'widget_block4_posts_args', array(

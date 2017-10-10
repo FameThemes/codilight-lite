@@ -27,7 +27,7 @@
 	<div id="topbar" class="site-topbar">
 		<div class="container">
 			<div class="topbar-left pull-left">
-				<nav id="site-navigation" class="main-navigation" role="navigation">
+				<nav id="site-navigation" class="main-navigation" >
 					<span class="home-menu"> <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><i class="fa fa-home"></i></a></span>
 					<span class="nav-toggle"><a href="#0" id="nav-toggle"><?php esc_html_e( 'Menu', 'codilight-lite' ); ?><span></span></a></span>
 					<ul class="ft-menu">
@@ -61,7 +61,7 @@
 	</div>
 
 	<?php do_action( 'codilight_lite_lite_before_site_header' ); ?>
-	<header id="masthead" class="site-header" role="banner">
+	<header id="masthead" class="site-header" >
 		<div class="container">
 			<div class="site-branding">
 				<?php

@@ -14,7 +14,6 @@
 // Essential Styles
 .ft-menu {
     float: right;
-    @extend .clearfix;
     ul {
         position: absolute;
         display: none;
@@ -354,7 +353,7 @@
             padding-left: 35px;
             position: relative;
             &:before {
-                content: "–";
+                content: "-";
                 color: #888888;
                 display: block;
                 position: absolute;

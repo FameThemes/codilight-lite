@@ -47,7 +47,7 @@ class Codilight_Lite_Widget_Block_2_Slider extends WP_Widget {
 		$featured_categories = ( ! empty( $instance['featured_categories'] ) ) ? $instance['featured_categories'] : '';
 		$ignore_sticky 		 = isset($instance['ignore_sticky']) ? $instance['ignore_sticky'] : 1;
 		$orderby			 = ( ! empty( $instance['orderby'] ) ) ? $instance['orderby'] : 'comment_count';
-		$number_posts        = ( !empty( $instance['$number_posts'] ) ) ? absint( $instance['$number_posts'] ) : 5;
+		$number_posts        = ( !empty( $instance['number_posts'] ) ) ? absint( $instance['number_posts'] ) : 5;
 		if ( ! $number_posts ) $number_posts = 5;
 
 		$r = new WP_Query( apply_filters( 'widget_block2_posts_args', array(
