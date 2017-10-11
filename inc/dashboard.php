@@ -6,7 +6,7 @@
 add_action('admin_menu', 'codilight_lite_theme_info');
 function codilight_lite_theme_info() {
 	$theme_data = wp_get_theme();
-	add_theme_page( sprintf( esc_html__( '%s Theme Dashboard', 'codilight-lite' ), $theme_data->Name ), sprintf( esc_html__('%s', 'codilight-lite'), $theme_data->Name), 'edit_theme_options', 'ft_codilight_lite', 'codilight_lite_theme_info_page');
+	add_theme_page( sprintf( esc_html__( '%s Theme Dashboard', 'codilight-lite' ), $theme_data->Name ), sprintf( esc_html__('%s', 'codilight-lite'), $theme_data->Name), 'edit_theme_options', 'codilight-lite', 'codilight_lite_theme_info_page');
 }
 
 function codilight_lite_theme_info_page() {
@@ -26,8 +26,8 @@ function codilight_lite_theme_info_page() {
 		<div class="about-text"><?php esc_html_e( 'Codilight Lite is a news magazine style WordPress theme from FameThemes which is a perfect option to create any kind of magazine or blog websites.', 'codilight-lite' ) ?></div>
 		<a target="_blank" href="<?php echo esc_url('https://www.famethemes.com/?utm_source=theme_dashboard_page&utm_medium=badge_link&utm_campaign=codilight-lite'); ?>" class="famethemes-badge wp-badge"><span><?php _e( 'FameThemes', 'codilight-lite' ); ?></span></a>
 		<h2 class="nav-tab-wrapper">
-			<a href="?page=ft_codilight_lite" class="nav-tab nav-tab-active"><?php echo $theme_data->Name; ?></a>
-            <a href="<?php echo esc_url( add_query_arg( array( 'page'=>'ft_codilight_lite', 'tab' => 'demo-data-importer' ), admin_url( 'themes.php' ) ) ); ?>" class="nav-tab<?php echo $tab == 'demo-data-importer' ? ' nav-tab-active' : null; ?>"><?php esc_html_e( 'One Click Demo Import', 'codilight-lite' ); ?></span></a>
+			<a href="?page=codilight-lite" class="nav-tab nav-tab-active"><?php echo $theme_data->Name; ?></a>
+            <a href="<?php echo esc_url( add_query_arg( array( 'page'=>'codilight-lite', 'tab' => 'demo-data-importer' ), admin_url( 'themes.php' ) ) ); ?>" class="nav-tab<?php echo $tab == 'demo-data-importer' ? ' nav-tab-active' : null; ?>"><?php esc_html_e( 'One Click Demo Import', 'codilight-lite' ); ?></span></a>
 		</h2>
 
 		<?php if ( is_null($tab) ) { ?>
@@ -67,8 +67,8 @@ function codilight_lite_theme_info_page() {
 
 		<?php if ( $tab == 'demo-data-importer' ) { ?>
             <div class="demo-import-tab-content theme_info">
-				<?php if ( has_action( 'codilight_lite_demo_import_content_tab' ) ) {
-					do_action( 'codilight_lite_demo_import_content_tab' );
+				<?php if ( has_action( 'codilight-lite_demo_import_content_tab' ) ) {
+					do_action( 'codilight-lite_demo_import_content_tab' );
 				} else { ?>
                     <div id="plugin-filter" class="demo-import-boxed">
 						<?php

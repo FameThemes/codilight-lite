@@ -1,8 +1,15 @@
 ====================================================================
 CHANGELOG
 ====================================================================
+## 1.0.8
+* Add demo importer.
+* Fix number post in block widgets.
+* Add recommend EasyMega plugin.
+
 ## 1.0.7
-* 
+* Remove CHANGELOG.md, moved to readme.txt
+* Remove README.md, moved to readme.txt
+* Add readme.txt files for better theme info/changelog.
 
 ## 1.0.6
 * Add Sanitize widget data.

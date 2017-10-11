@@ -217,7 +217,7 @@ if ( ! function_exists( 'codilight_lite_admin_scripts' ) ) :
  * Enqueue scripts for admin page only: Theme info page
  */
 function codilight_lite_admin_scripts( $hook ) {
-	if ( $hook === 'widgets.php' || $hook === 'appearance_page_ft_codilight_lite'  ) {
+	if ( $hook === 'widgets.php' || $hook === 'appearance_page_codilight-lite'  ) {
 		wp_enqueue_style('codilight-lite-admin-css', get_template_directory_uri() . '/assets/css/admin.css');
 	}
 }
