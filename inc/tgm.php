@@ -2389,15 +2389,15 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 						break;
 					case 'install':
 						/* translators: 1: number of plugins. */
-						$text = _n( 'To Install <span class="count">(%s)</span>', 'To Install <span class="count">(%s)</span>', $count, 'codilight-lite' );
+						$text = _n( 'To Install <span class="count">(%s)</span>', 'To tnstall <span class="count">(%s)</span>', $count, 'codilight-lite' );
 						break;
 					case 'update':
 						/* translators: 1: number of plugins. */
-						$text = _n( 'Update Available <span class="count">(%s)</span>', 'Update Available <span class="count">(%s)</span>', $count, 'codilight-lite' );
+						$text = _n( 'Updates Available <span class="count">(%s)</span>', 'Updates Available <span class="count">(%s)</span>', $count, 'codilight-lite' );
 						break;
 					case 'activate':
 						/* translators: 1: number of plugins. */
-						$text = _n( 'To Activate <span class="count">(%s)</span>', 'To Activate <span class="count">(%s)</span>', $count, 'codilight-lite' );
+						$text = _n( 'To Activate <span class="count">(%s)</span>', 'To activate <span class="count">(%s)</span>', $count, 'codilight-lite' );
 						break;
 					default:
 						$text = '';
