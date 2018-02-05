@@ -96,7 +96,7 @@ function codilight_lite_theme_info_page() {
 								'_wpnonce' => wp_create_nonce('activate-plugin_' . $plugin_name . '/' . $plugin_name . '.php'),
 							), network_admin_url('plugins.php'));
 							$button_class = 'activate-now button-primary';
-							$button_txt = esc_html__( 'Active Now', 'codilight-lite' );
+							$button_txt = esc_html__( 'Activate Now', 'codilight-lite' );
 						}
 						$detail_link = add_query_arg(
 							array(
