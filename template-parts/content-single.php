@@ -17,7 +17,7 @@
 
 	<?php if ( has_post_thumbnail() ) : ?>
 	<div class="entry-thumb">
-		<?php the_post_thumbnail( 'codilight_lte_codilight_lite_single_medium' ); ?>
+		<?php the_post_thumbnail( 'codilight_lite_single_medium' ); ?>
 	</div>
 	<?php endif; ?>
 
