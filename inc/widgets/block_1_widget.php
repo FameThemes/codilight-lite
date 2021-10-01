@@ -4,7 +4,11 @@
  */
 
 // Register the widget
-add_action( 'widgets_init', create_function( '', 'return register_widget("Codilight_Lite_Widget_Block1");'));
+add_action( 'widgets_init', 'codilight_lite_register_widget_block1' );
+
+function codilight_lite_register_widget_block1() {
+	register_widget( 'Codilight_Lite_Widget_Block1' );
+}
 
 // The widget class
 class Codilight_Lite_Widget_Block1 extends WP_Widget {
