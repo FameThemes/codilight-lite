@@ -7,7 +7,7 @@
  * @package Codilight_Lite
  */
 
-if ( ! function_exists( 'codilight_lite_posted_on' ) ) :
+if ( ! function_exists( 'codilight_lite_meta_1' ) ) :
 /**
  * Post meta information style 1
  */
