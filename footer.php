@@ -14,7 +14,10 @@
 	<div class="footer-shadow container">
 		<div class="row">
 			<div class="col-md-12">
-				<img src="<?php echo get_template_directory_uri().'/assets/images/footer-shadow.png' ?>" alt="" />
+				<?php
+					$footer_shadow_image = get_template_directory_uri().'/assets/images/footer-shadow.png';
+				?>
+				<img src="<?php echo esc_url( $footer_shadow_image ); ?>" alt="" />
 			</div>
 		</div>
 	</div>

@@ -73,7 +73,7 @@ class Codilight_Lite_Widget_Block_3 extends WP_Widget {
 			if ( $block_category ) {
 				echo $args['before_title'];
 	            ?>
-	            <a href="<?php echo esc_url( get_category_link( $block_category ) ); ?>"><?php echo esc_attr(get_cat_name( $block_category ) ); ?></a>
+	            <a href="<?php echo esc_url( get_category_link( $block_category ) ); ?>"><?php echo esc_html(get_cat_name( $block_category ) ); ?></a>
 	            <?php
 	            echo $args['after_title'];
 			}

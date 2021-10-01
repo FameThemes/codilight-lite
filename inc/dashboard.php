@@ -45,20 +45,23 @@ function codilight_lite_theme_info_page() {
 						<h3><?php esc_html_e( 'Theme Documentation', 'codilight-lite' ); ?></h3>
 						<p class="about"><?php printf(esc_html__('Need any help to setup and configure %s? Please have a look at our documentations instructions.', 'codilight-lite'), $theme_data->Name); ?></p>
 						<p>
-							<a href="http://docs.famethemes.com/category/111-codilight-lite" target="_blank" class="button button-secondary"><?php esc_html_e('Online Documentation', 'codilight-lite'); ?></a>
+							<a href="<?php echo esc_url( 'http://docs.famethemes.com/category/111-codilight-lite' ); ?>" target="_blank" class="button button-secondary"><?php esc_html_e('Online Documentation', 'codilight-lite'); ?></a>
 						</p>
 					</div>
 					<div class="theme_link">
 						<h3><?php esc_html_e( 'Having Trouble, Need Support?', 'codilight-lite' ); ?></h3>
 						<p class="about"><?php printf(esc_html__('Support for %s WordPress theme is conducted through the WordPress free theme support forum.', 'codilight-lite'), $theme_data->Name); ?></p>
 						<p>
-							<a href="https://wordpress.org/support/theme/codilight-lite" target="_blank" class="button button-secondary"><?php echo sprintf( esc_html__('Go To %s Support Forum', 'codilight-lite'), $theme_data->Name); ?></a>
+							<a href="<?php echo esc_url( 'https://wordpress.org/support/theme/codilight-lite' ); ?>" target="_blank" class="button button-secondary"><?php echo sprintf( esc_html__('Go To %s Support Forum', 'codilight-lite'), $theme_data->Name); ?></a>
 						</p>
 					</div>
 				</div>
 
 				<div class="theme_info_right">
-					<img src="<?php echo get_template_directory_uri(); ?>/screenshot.png" alt="<?php esc_attr_e( 'Theme Screenshot', 'codilight-lite' ); ?>" />
+					<?php
+						$theme_screenshot = get_template_directory_uri() . '/screenshot.png';
+					?>
+					<img src="<?php echo esc_url( $theme_screenshot ); ?>" alt="<?php esc_attr_e( 'Theme Screenshot', 'codilight-lite' ); ?>" />
 				</div>
 			</div>
 		</div>

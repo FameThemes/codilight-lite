@@ -42,6 +42,5 @@ Codilight Lite is a news magazine style WordPress theme from FameThemes which is
 * Google Fonts https://www.google.com/fonts/specimen/Open+Sans License: SIL Open Font License, 1.1 - scripts.sil.org/OFL
 * Font Awesome http://fontawesome.io/, (C) Dave Gandy, [MIT](http://opensource.org/licenses/MIT)
 * Slickjs https://github.com/kenwheeler/slick [MIT](https://github.com/kenwheeler/slick/blob/master/LICENSE)
-* Screenshot Images Pixabay https://pixabay.com/en/service/terms/ [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
 * Screenshot Images Pexels https://www.pexels.com/photo-license/ [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
 

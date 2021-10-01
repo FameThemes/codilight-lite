@@ -21,6 +21,7 @@
 </head>
 
 <body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'codilight-lite' ); ?></a>
 	<?php do_action( 'codilight_lite_before_topbar' ); ?>
