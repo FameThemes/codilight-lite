@@ -1,6 +1,10 @@
 ====================================================================
 CHANGELOG
 ====================================================================
+## 1.0.9
+* Fix wrong image size in the_post_thumbnail.
+* Fix wrong condition check function exists.
+
 ## 1.0.8
 * Add demo importer.
 * Fix number post in block widgets.
